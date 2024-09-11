@@ -11,6 +11,8 @@ import {
   Select,
   Typography,
   useTheme,
+  TextField,
+  InputAdornment
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -20,6 +22,9 @@ import Btn from "../../../../components/Btn/Btn";
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaRegCircleUser } from "react-icons/fa6";
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -71,7 +76,11 @@ const Header = () => {
   };
   const menuItems = [
     { label: "Home", route: "/" },
-    { label: "Lab Tests", route: "/lab-tests" },
+    { label: "Services", route: "/tyre-details" },
+    { label: "Labe Test", route: "/deck" },
+    { label: "FAQS", route: "/rims" },
+    { label: "Blogs", route: "/rims" },
+    { label: "Contact Us", route: "/rims" },
   ];
 const handleHome = ()=>{
   navigate('/')
@@ -89,9 +98,11 @@ const handleHome = ()=>{
       <FlexBox sx={{ gap: "1rem" }}>
         <Box onClick={handleHome} sx={{cursor:'pointer'}}>
 
-        <Image src="/logo.svg" width={'100%'} />
+        <Image src="/logo.svg" sx={{
+          width:'3rem'
+        }} />
         </Box>
-
+        
       </FlexBox>
 
       <Box
@@ -109,10 +120,10 @@ const handleHome = ()=>{
               setDrawerOpen(false);
             }}
             sx={{
-              fontSize: "1rem",
+              fontSize:  "1rem",
               cursor: "pointer",
+              fontWeight:500,
               color: "black",
-              fontWeight:'600',
               ":hover": {
                 color: theme.palette.primary.main,
               },
@@ -123,9 +134,160 @@ const handleHome = ()=>{
         ))}
       </Box>
 
-   <Box>
-    {/* empty  */}
-   </Box>
+      <FlexBox sx={{ display: { xs: "none", sm: "flex", gap: "1rem" } }}>
+      <TextField
+      sx={{
+        borderRadius: '50px',
+        width: '200px', // Adjust width as needed
+        '& .MuiOutlinedInput-root': {
+          borderRadius: '50px',
+        },
+        '& .MuiInputBase-input': {
+          height: '15px', // Adjust height as needed
+          fontWeight: 500, // Font weight for the input text
+        },
+        '& .MuiInputLabel-root': {
+          color: 'black', // Placeholder color
+        },
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: 'black', // Border color to match placeholder color if needed
+        },
+        '& .MuiInputBase-input::placeholder': {
+          color: 'black', // Placeholder text color
+        },
+      }}
+      variant="outlined"
+      placeholder="Search..."
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        ),
+      }}
+    />
+       <Button sx={{ fontWeight:500,
+              color: "black", 
+         border:'1px solid darkgray',
+         borderRadius:'50px',
+         padding:'0.5rem 1rem',
+         textTransform:'none'
+       }}>
+       <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
+       </Button>
+
+        <Button
+          onClick={handleLogin}
+          sx={{
+            color: "white",
+            border:'1px solid #265630',
+            backgroundColor:'#265630',
+            textTransform: "none",
+            fontSize: "0.9rem",
+            borderRadius:'50px',
+            padding:'0.5rem 1rem',
+            '&:hover':{
+              color: "#265630",
+              border:'1px solid #265630',
+              backgroundColor:'transparent',
+            }
+          }}
+        >
+          <FaRegCircleUser style={{marginRight:'0.5rem', fontSize:'1.2rem'}} />
+          Sign Up
+        </Button>
+
+        {/* <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+
+            cursor: "pointer",
+          }}
+        >
+          {auth ? (
+            <Box>
+              <FormControl sx={{ padding: 0 }}>
+                <Select
+                  sx={{
+                    outline: "none",
+                    "&:focus": {
+                      outline: "none",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "none",
+                    },
+                  }}
+                  value={selectedValue}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Select user" }}
+                  style={{ minWidth: "120px", padding: 0 }}
+                  renderValue={(selected) => (
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <Avatar
+                        alt=""
+                        src=""
+                        sx={{
+                          height: "2rem",
+                          width: "2rem",
+                          marginRight: "8px",
+                        }}
+                      />
+                      <Typography sx={{ fontSize: "1rem" }}> Usama</Typography>
+                    </Box>
+                  )}
+                >
+                  <MenuItem
+                    sx={{ fontSize: "0.8rem" }}
+                    value="My orders"
+                    onClick={() => handleMenuItemClick("My orders")}
+                  >
+                    My orders
+                  </MenuItem>
+
+                  <MenuItem
+                    sx={{ fontSize: "0.8rem" }}
+                    value="assembly workshop"
+                    onClick={() => handleMenuItemClick("assembly workshop")}
+                  >
+                    My Assembly Workshop
+                  </MenuItem>
+
+                  <MenuItem
+                    sx={{ fontSize: "0.8rem" }}
+                    value="customer data"
+                    onClick={() => handleMen.uItemClick("customer data")}
+                  >
+                    Customer Data
+                  </MenuItem>
+
+                  <MenuItem
+                    sx={{ fontSize: "0.8rem" }}
+                    value="Logout"
+                    onClick={() => handleMenuItemClick("Logout")}
+                  >
+                    Logout
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          ) : (
+            <Button
+              // onClick={handleLogin}
+              variant="contained"
+              sx={{
+                backgroundColor: theme.palette.primary.main,
+                padding: "0.5rem 2rem",
+                textTransform: "none",
+                fontSize: "0.9rem",
+              }}
+            >
+              Login
+            </Button>
+          )}
+        </Box> */}
+      </FlexBox>
 
       <Box sx={{ display: { xs: "flex", sm: "none" } }}>
         <IconButton onClick={handleDrawerOpen}>
@@ -162,7 +324,7 @@ const handleHome = ()=>{
               </Box>
             ))}
             <Box sx={{ marginTop: 2 }}>
-              {/* <Btn
+              <Btn
                 onClick={handleLogin}
                 variant="contained"
                 sx={{
@@ -173,7 +335,7 @@ const handleHome = ()=>{
                 }}
               >
                 The Checkout
-              </Btn> */}
+              </Btn>
             </Box>
           </Box>
         </Drawer>
