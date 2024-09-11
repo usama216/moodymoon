@@ -42,7 +42,7 @@ const Testimonial = () => {
                 : "3rem",
               fontWeight: 600,
               textTransform: "capitalize",
-              marginBottom: "2rem",
+              marginBottom: "4rem",
             }}
           >
             What Our Clients Say
@@ -66,8 +66,8 @@ const Testimonial = () => {
                 width:isSmallScreen
                 ? "5rem"
                 : isMediumScreen
-                ? "8rem"
-                : "10rem",
+                ? "7rem"
+                : "9rem",
                 }} />
         <Typography
             sx={{
@@ -80,9 +80,29 @@ const Testimonial = () => {
               fontWeight: 500,
               textTransform: "capitalize",
               marginBottom: "2rem",
+              
             }}
           >
             Absolutely love the gummies! They help me unwind after a long day without any of the grogginess. Plus, they taste amazing!
+          </Typography>
+        </Box>
+
+        <Box>
+        <Typography
+            sx={{
+              color: "black",
+              fontSize: isSmallScreen
+                ? "1.2rem"
+                : isMediumScreen
+                ? "1.5rem"
+                : "2rem",
+              fontWeight: 500,
+              textTransform: "capitalize",
+              marginBottom: "2rem",
+              
+            }}
+          >
+            Sara T.
           </Typography>
         </Box>
 
