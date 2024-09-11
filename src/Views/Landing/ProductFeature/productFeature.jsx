@@ -62,18 +62,21 @@ const ProductFeature = () => {
       title: "Gorilla Glue + Diablo OG - THC A Moon Rocks",
       name: "MOODY MOOD HEMP",
       icon: <FiArrowUpRight />,
+      price:'13.99'
     },
     {
       imag: "/category22.png",
       title: "Jack Herer - THC A Exotic Indoor PreRoll",
       name: "MOODY MOOD HEMP",
       icon: <FiArrowUpRight />,
+      price:'12.99'
     },
     {
       imag: "/category33.png",
       title: "RS-11 + Blackberry Kush - THC A Moon Rocks",
       name: "MOODY MOOD HEMP",
       icon: <FiArrowUpRight />,
+      price:'13.99'
     },
     // {
     //   imag: "/category44.png",
@@ -177,7 +180,7 @@ const ProductFeature = () => {
                       textTransform: "uppercase",
                     }}
                   >
-                    Regular price$13.99
+                    Regular price${row.price}
                   </Typography>
                   <Box sx={{
                     display:'flex',
