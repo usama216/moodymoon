@@ -10,8 +10,9 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./Category.module.css"; // Import CSS Module
-import CustomButton from "../Landing/components/Button/CustomButton";
+import styles from "./ProductFeature.module.css"; // Import CSS Module
+import CustomButton from "../components/Button/CustomButton";
+
 
 
 const productFeature = () => {
