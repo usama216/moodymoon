@@ -9,6 +9,8 @@ import BenefitsofhempProduct from "./components/BenefitsofhempProduct";
 import BlogsMain from "./Blogs/BlogsMain";
 import ProductSample from "./ProductSample/ProductSample";
 import Testimonial from "./Testimonial/Testimonial";
+import productFeature from "../ProductFeature/productFeature";
+
 
 const Landing = () => {
   return (
@@ -20,6 +22,7 @@ const Landing = () => {
       <BenefitsofhempProduct />
       <FounderMessage />
       <BlogsMain/>
+      <productFeature/>
       <ProductSample/>
       <Testimonial/>
     </Page>
