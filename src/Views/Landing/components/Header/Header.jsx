@@ -79,7 +79,7 @@ const handleHome = ()=>{
   return (
     <Box
       sx={{
-        padding: "0.3rem 5%",
+        padding: "1rem 5%",
         color: "black",
         display: "flex",
         justifyContent: "space-between",
@@ -89,7 +89,7 @@ const handleHome = ()=>{
       <FlexBox sx={{ gap: "1rem" }}>
         <Box onClick={handleHome} sx={{cursor:'pointer'}}>
 
-        <Image src="/logo.png" width={'70%'} />
+        <Image src="/logo.svg" width={'100%'} />
         </Box>
 
       </FlexBox>

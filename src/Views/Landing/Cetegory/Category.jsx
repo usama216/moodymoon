@@ -83,7 +83,7 @@ const Category = () => {
       <Box>
         <Typography
           sx={{
-            color: "#17364c",
+            color: "black",
             fontSize: isSmallScreen
               ? "1.5rem"
               : isMediumScreen
@@ -166,12 +166,12 @@ const Category = () => {
       >
         <CustomButton
           border={"1px solid #17364c"}
-          backgroundColor={"#17364c"}
+          backgroundColor={"#265630"}
           color={"white"}
           hbackgroundColor={"transparent"}
-          hcolor={"#17364c"}
+          hcolor={"#265630"}
           name="Learn More"
-        />      
+        />
       </Box>
     </Box>
   );

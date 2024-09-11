@@ -23,7 +23,7 @@ const Faqs = () => {
   ];
 
   return (
-    <Box sx={{ backgroundColor: '#fae9cbc0', padding: '1rem', borderRadius: '10px' }}>
+    <Box sx={{ backgroundColor: '#d3fad5', padding: '1rem', borderRadius: '10px' }}>
       {faqsData.map((faq, index) => (
         <Accordion
           key={index}

@@ -17,15 +17,15 @@ const BenefitsofhempProduct = () => {
   return (
     <>
       <Box sx={{ padding: "2rem 5%",
-         backgroundColor: "#f7dba9" ,
+         backgroundColor: "#b6f7b9" ,
          marginTop: {xs:'2rem', sm:'3rem', md:'4rem', lg:'5rem'},
           position:'relative'
           }}>
-            <img src="bp1.png" alt="" style={{position:'absolute',
+            <img src="bp2.png" alt="" style={{position:'absolute',
               bottom:0, left:0,
               width:isSmallScreen ? '10rem': isMediumScreen ? '12rem': '15rem'
             }} />
-            <img src="/bp2.png" alt="" style={{position:'absolute',
+            <img src="/bp1.png" alt="" style={{position:'absolute',
               top:0, right:0,
               width:isSmallScreen ? '10rem': isMediumScreen ? '12rem': '15rem'
             }}/>
@@ -34,7 +34,7 @@ const BenefitsofhempProduct = () => {
             <Box sx={{
               display:'flex',
               flexDirection:'column',
-              justifyContent:'center', 
+              justifyContent:'center',
               height:'100%'
             }}>
               <Typography sx={{ fontSize:isSmallScreen ? '1.3rem': isMediumScreen ? '1.8rem' : "2rem",
