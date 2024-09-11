@@ -9,7 +9,7 @@ import BenefitsofhempProduct from "./components/BenefitsofhempProduct";
 import BlogsMain from "./Blogs/BlogsMain";
 import ProductSample from "./ProductSample/ProductSample";
 import Testimonial from "./Testimonial/Testimonial";
-import productFeature from "./ProductFeature/productFeature";
+import ProductFeature from "./ProductFeature/productFeature";
 
 
 
@@ -23,8 +23,8 @@ const Landing = () => {
       <BenefitsofhempProduct />
       <FounderMessage />
       <BlogsMain/>
-      <productFeature/>
-      <ProductSample/>
+      <ProductFeature/>
+      
       <Testimonial/>
     </Page>
   );
