@@ -71,6 +71,21 @@ const Footer = () => {
     { label: "Shipping Policy", route: "/terms" },
   ];
 
+  const footerBottomtext =[
+    {title: "FDA Disclaimer",
+      des2:'The statements made regarding these products have not been evaluated by the Food and Drug Administration. The efficacy of these products has not been confirmed by FDA-approved research. These products are not intended to diagnose, treat, cure or prevent any disease. All information presented here is not meant as a substitute for or alternative to information from health care practitioners. Please consult your health care professional about potential interactions or other possible complications before using any product. The Federal Food, Drug, and Cosmetic Act require this notice.'
+    },
+    {title: "THCA Disclaimer",
+      des1:'We do not ship THCa products to the states where THCa is restricted or illegal.', 
+      des2:'We CAN ship THCa products to the following states: Alabama, Arizona, Arkansas, D.C., Florida, Georgia, Illinois, Kentucky, Louisiana, Maine, Missouri, Nebraska, Nevada, New York, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Texas, West Virginia.'
+    },
+    {title: "Delta-8 Disclaimer",
+      des1:'', 
+      des2:'We do not ship Delta 8 products to the following states: Alaska, Colorado, Delaware, Hawaii, Idaho, Massachusetts, Mississippi, Montana, Nevada, New York, North Dakota, Oregon, Rhode Island, Utah, Vermont, Virginia, Washington, and West Virginia.'
+    }
+  
+  ]
+
   return (
     <StyledFooter>
       <Grid container spacing={5} sx={{paddingTop:'3rem'}}>
@@ -146,7 +161,7 @@ const Footer = () => {
       <br />
       <br />
       <br />
-      <Divider sx={{ backgroundColor: "white" }} />
+      <Divider sx={{ backgroundColor: "gray", height:'0.01px'}} />
 
       <br />
       <br />
@@ -157,6 +172,7 @@ const Footer = () => {
           justifyContent: "center",
           color: "white",
           flexDirection: "column",
+          
         }}
       >
         <Typography
@@ -200,7 +216,37 @@ const Footer = () => {
         </Box>
       </FlexBox>
       <br />
-      <Divider sx={{ backgroundColor: "white" }} />
+      <br />
+      <Divider sx={{ backgroundColor: "gray", height:'0.01px' }} />
+      <br /> 
+
+      <Box sx={{
+        marginTop:'1rem'
+      }}>
+        {footerBottomtext.map((row, index)=>(
+          <Box key={index}>
+          <Typography sx={{ fontSize:isSmallScreen ? '1.2rem': isMediumScreen ? '1.5rem' : "2rem",
+                   fontWeight: 700, marginBottom:'0.5rem'
+                    }}>
+                  {row.title}
+                </Typography>
+                <Typography sx={{ fontSize:isSmallScreen ? '0.9rem': isMediumScreen ? '1rem' : "1rem",
+                   fontWeight: 400, marginBottom:'1rem'
+                    }}>
+                  {row.des1}
+                </Typography>
+                <Typography sx={{ fontSize:isSmallScreen ? '0.9rem': isMediumScreen ? '1rem' : "1rem",
+                   fontWeight: 400, marginBottom:'1rem'
+                    }}>
+                      {row.des2}
+                </Typography>
+          </Box>
+        ))}
+        
+      </Box>
+
+      <br />
+      <Divider sx={{ backgroundColor: "gray", height:'0.01px' }} />
       <br />
 
       <Box

@@ -136,6 +136,7 @@ const handleHome = ()=>{
 
       <FlexBox sx={{ display: { xs: "none", sm: "flex", gap: "1rem" } }}>
       <TextField
+      // size="small"
       sx={{
         borderRadius: '50px',
         width: '200px', // Adjust width as needed
@@ -143,7 +144,7 @@ const handleHome = ()=>{
           borderRadius: '50px',
         },
         '& .MuiInputBase-input': {
-          height: '15px', // Adjust height as needed
+          height: '7px', // Adjust height as needed
           fontWeight: 500, // Font weight for the input text
         },
         '& .MuiInputLabel-root': {
