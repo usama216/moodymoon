@@ -12,7 +12,7 @@ import Testimonial from "./Testimonial/Testimonial";
 
 const Landing = () => {
   return (
-    <Page title="Cali Origin">
+    <Page title="Moody Moon">
       <Hero />
       <Category />
       <Video />
