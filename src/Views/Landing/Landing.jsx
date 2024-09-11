@@ -9,7 +9,7 @@ import BenefitsofhempProduct from "./components/BenefitsofhempProduct";
 
 const Landing = () => {
   return (
-    <Page title="Cali Origin">
+    <Page title="Moody Moon">
 
 
       {/* <HeroSection/> */}
