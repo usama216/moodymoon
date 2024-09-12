@@ -40,7 +40,7 @@ const Hero = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            height: isSmallScreen ? "50vh" : "100vh",
+            height: isSmallScreen ? "auto" : "100vh",
             //  padding:'0% 10%'
           }}
         >
@@ -52,7 +52,7 @@ const Hero = () => {
               alignItems: "start",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "0% 5%",
+              padding:isSmallScreen ? "2% 5%" : "0% 5%",
             }}
           >
             <Typography
@@ -126,10 +126,13 @@ const Hero = () => {
               name="Learn More"
             />
 
-            <br />
-            <br />
-            <br />
-            <Image src="/herosecbrands.svg" />
+           
+            <Box sx={{
+              marginTop:isSmallScreen ?  "1rem": isMediumScreen ? "3rem": '4rem',
+               marginLeft: isSmallScreen ? '0rem'  :'-2rem'
+            }}>
+            <Image src="/herosecbrands.svg"  width={isSmallScreen ? "50%": isMediumScreen ? "60%":'80%'}/>
+            </Box>
           </Box>
         </Box>
 
