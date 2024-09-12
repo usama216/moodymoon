@@ -40,7 +40,7 @@ const Hero = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            height: isSmallScreen ? "auto" : "100vh",
+            minHeight: isSmallScreen ? "auto" : "auto",
             //  padding:'0% 10%'
           }}
         >
@@ -52,7 +52,7 @@ const Hero = () => {
               alignItems: "start",
               flexDirection: "column",
               justifyContent: "center",
-              padding:isSmallScreen ? "2% 5%" : "0% 5%",
+              padding:isSmallScreen ? "5% 5%" : "7% 5%",
             }}
           >
             <Typography

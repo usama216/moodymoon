@@ -1,15 +1,15 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import Image from "../../../components/Image/Image";
-import HeroSectionSearch from "./HeroSectionSearch";
+import Image from "../../components/Image/Image";
+// import HeroSectionSearch from "./HeroSectionSearch";
 import { Link } from "react-router-dom";
 
-const HeroSection = () => {
+const FaqsHero = () => {
   return (
     <>
       <Box
         sx={{
-          backgroundImage: "url(LabTests.png)",
+          backgroundImage: "url(faqsbg.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "none",
@@ -29,7 +29,7 @@ const HeroSection = () => {
           <Typography
             sx={{ fontWeight: "700", fontSize: "2rem", color: "white" }}
           >
-            Lab Tests
+           FAQS
           </Typography>
           <br />
           <Box sx={{ display: "flex" }}>
@@ -41,14 +41,14 @@ const HeroSection = () => {
             <Typography
               sx={{ fontSize: "1rem", marginLeft: "1rem", color: "white" }}
             >
-           
+           /
             </Typography>
 
             <Typography
               sx={{ marginLeft: "1rem", fontSize: "1rem", color: "white" }}
             >
               <Link style={{ textDecoration: "none", color: "white" }}>
-                Lab Tests
+                Faqs
               </Link>
             </Typography>
           </Box>
@@ -58,4 +58,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default FaqsHero;
