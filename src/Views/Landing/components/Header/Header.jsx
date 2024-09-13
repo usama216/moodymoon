@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import {
-  Avatar,
   Box,
   Button,
   Divider,
   Drawer,
-  FormControl,
+
   IconButton,
-  MenuItem,
-  Select,
+
   Typography,
   useTheme,
   TextField,
@@ -76,11 +74,11 @@ const Header = () => {
   };
   const menuItems = [
     { label: "Home", route: "/" },
-    { label: "Services", route: "/tyre-details" },
-    { label: "Labe Test", route: "/deck" },
-    { label: "FAQS", route: "/rims" },
-    { label: "Blogs", route: "/rims" },
-    { label: "Contact Us", route: "/rims" },
+    { label: "Services", route: "/" },
+    { label: "Labe Test", route: "/" },
+    { label: "FAQS", route: "/" },
+    { label: "Blogs", route: "/" },
+    { label: "Contact Us", route: "/" },
   ];
 const handleHome = ()=>{
   navigate('/')
@@ -102,7 +100,7 @@ const handleHome = ()=>{
           width:'3rem'
         }} />
         </Box>
-        
+
       </FlexBox>
 
       <Box
@@ -168,7 +166,7 @@ const handleHome = ()=>{
       }}
     />
        <Button sx={{ fontWeight:500,
-              color: "black", 
+              color: "black",
          border:'1px solid darkgray',
          borderRadius:'50px',
          padding:'0.5rem 1rem',

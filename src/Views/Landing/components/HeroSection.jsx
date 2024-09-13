@@ -9,7 +9,7 @@ const HeroSection = () => {
     <>
       <Box
         sx={{
-          backgroundImage: "url(LabTests.png)",
+          backgroundImage: "url(LabTests.svg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "none",
@@ -41,7 +41,7 @@ const HeroSection = () => {
             <Typography
               sx={{ fontSize: "1rem", marginLeft: "1rem", color: "white" }}
             >
-           
+
             </Typography>
 
             <Typography

@@ -15,7 +15,7 @@ import Image from "../../../components/Image/Image";
 
 const Hero = () => {
   const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));  
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -126,7 +126,7 @@ const Hero = () => {
               name="Learn More"
             />
 
-           
+
             <Box sx={{
               marginTop:isSmallScreen ?  "1rem": isMediumScreen ? "3rem": '4rem',
                marginLeft: isSmallScreen ? '0rem'  :'-2rem'
