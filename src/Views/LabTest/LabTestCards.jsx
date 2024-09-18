@@ -102,9 +102,9 @@ const LabTestCards = () => {
 
   return (
     <Box sx={{ padding: "0% 5%", marginTop: "4rem", boxSizing:'border-box' }}>
-      <Grid container spacing={0}>
+      <Grid container spacing={2}>
             {listData.map((row, index) => (
-        <Grid key={index} lg={3} md={4} sm={6} xs={12} >
+        <Grid key={index} item lg={3} md={4} sm={6} xs={12} >
              <Box  sx={{marginRight:'0rem',}}>
                <Box 
                 sx={{

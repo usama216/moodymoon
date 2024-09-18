@@ -8,7 +8,7 @@ const PHeroSection = () => {
     <>
       <Box
         sx={{
-          backgroundImage: "url(LabTests.png)",
+          backgroundImage: "url(ourproductbg.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "none",
