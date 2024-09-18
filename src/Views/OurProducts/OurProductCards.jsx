@@ -101,7 +101,7 @@ const OurProductCards = () => {
                           }}
                         >
                           <Rating
-                            // size="small"
+                            size="small"
                             readOnly
                             defaultValue={row.star}
                             sx={{
