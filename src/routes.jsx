@@ -4,7 +4,7 @@ import LabtestMain from "./Views/LabTest/LabtestMain";
 import FaqsMain from "./Views/FAQS/FaqsMain";
 import OurProductMain from "./Views/OurProducts/OurProductMain";
 import ProductDetailMain from "./Views/ProductDetail/ProductDetailMain";
-import ContactUsHero from "./Views/ContactUs/ContactUsHero";
+import ContactUsMain from "./Views/ContactUs/ContactUsMain";
 
 
 
@@ -32,7 +32,7 @@ export default function Router() {
        },
        {
         path:'/contactus',
-        element : <ContactUsHero/> ,
+        element : <ContactUsMain/> ,
        },
 
     ])
