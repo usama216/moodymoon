@@ -1,15 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-// import Image from "../../../components/Image/Image";
-import HeroSectionSearch from "./HeroSectionSearch";
+// import HeroSectionSearch from "./HeroSectionSearch";
 import { Link } from "react-router-dom";
 
-const HeroSection = () => {
+const ProductDetailHero = () => {
   return (
     <>
       <Box
         sx={{
-          backgroundImage: "url(LabTests.svg)",
+          backgroundImage: "url(ourproductbg.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "none",
@@ -29,7 +28,7 @@ const HeroSection = () => {
           <Typography
             sx={{ fontWeight: "700", fontSize: "2rem", color: "white" }}
           >
-            Lab Tests
+            Our Products
           </Typography>
           <br />
           <Box sx={{ display: "flex" }}>
@@ -41,14 +40,14 @@ const HeroSection = () => {
             <Typography
               sx={{ fontSize: "1rem", marginLeft: "1rem", color: "white" }}
             >
-
+           
             </Typography>
 
             <Typography
               sx={{ marginLeft: "1rem", fontSize: "1rem", color: "white" }}
             >
               <Link style={{ textDecoration: "none", color: "white" }}>
-                Lab Tests
+                Our Products / details
               </Link>
             </Typography>
           </Box>
@@ -58,4 +57,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default ProductDetailHero;
