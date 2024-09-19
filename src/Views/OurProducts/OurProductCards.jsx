@@ -332,7 +332,7 @@ const OurProductCards = () => {
             price: "12.99",
             star: "5",
             review: "10",
-            availability: "In Stock",
+              availability: "In Stock",
           },
           {
             img: "/OPcard1.png",
@@ -340,6 +340,8 @@ const OurProductCards = () => {
             price: "12.99",
             star: "4",
             review: "64",
+            availability: "Out of Stock",
+
           },
           {
             img: "/OPcard1.png",
@@ -347,6 +349,8 @@ const OurProductCards = () => {
             price: "12.99",
             star: "3",
             review: "6",
+            availability: "Out of Stock",
+
           },
           {
             img: "/OPcard1.png",
@@ -354,7 +358,8 @@ const OurProductCards = () => {
             price: "12.99",
             star: "5",
             review: "65",
-            availability: "Out of Stock",
+            availability: "In Stock",
+
           },
           {
             img: "/OPcard1.png",
@@ -362,6 +367,8 @@ const OurProductCards = () => {
             price: "12.99",
             star: "1",
             review: "76",
+            availability: "Out of Stock",
+
           },
           {
             img: "/OPcard1.png",
@@ -369,6 +376,8 @@ const OurProductCards = () => {
             price: "12.99",
             star: "2",
             review: "6",
+            availability: "Out of Stock",
+
           },
 
   ];
@@ -382,6 +391,7 @@ const OurProductCards = () => {
     "Novelties",
   ];
 
+  // Filter products based on selected category and availability
   const filteredProducts = listData.filter((product) => {
     const categoryMatches = activeCategory === "All Products" || product.category === activeCategory;
     const availabilityMatches = product.availability === selectedAvailability;
@@ -390,7 +400,7 @@ const OurProductCards = () => {
 
   return (
     <Box sx={{ padding: "5% 5%" }}>
-      <Grid container spacing={6}>  
+      <Grid container spacing={6}>
         {/* ==============================LEFT============================================ */}
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Card
