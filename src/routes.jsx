@@ -4,6 +4,8 @@ import LabtestMain from "./Views/LabTest/LabtestMain";
 import FaqsMain from "./Views/FAQS/FaqsMain";
 import OurProductMain from "./Views/OurProducts/OurProductMain";
 import ProductDetailMain from "./Views/ProductDetail/ProductDetailMain";
+import ContactUsMain from "./Views/ContactUs/ContactUsMain";
+
 
 
 export default function Router() {
@@ -28,7 +30,10 @@ export default function Router() {
         path:'/faqs',
         element : <FaqsMain/> ,
        },
-
+       {
+        path:'/contactus',
+        element : <ContactUsMain/> ,
+       },
 
     ])
     return element
