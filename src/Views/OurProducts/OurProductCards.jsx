@@ -16,6 +16,7 @@ import {
 import React, { useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useNavigate } from "react-router-dom";
 
 const OurProductCards = () => {
   const theme = useTheme();
@@ -27,9 +28,10 @@ const OurProductCards = () => {
   const [activeCategory, setActiveCategory] = useState("All Products");
   const [selectedAvailability, setSelectedAvailability] = useState("In Stock");
   const [priceRange, setPriceRange] = useState([0, 349.99]);
-
+  const navigate = useNavigate();
   const listData = [
     {
+      id: 1,
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -39,6 +41,8 @@ const OurProductCards = () => {
     },
 
     {
+      id: 2,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -47,6 +51,8 @@ const OurProductCards = () => {
       availability: "In Stock",
     },
     {
+      id: 3,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -55,6 +61,8 @@ const OurProductCards = () => {
       availability: "In Stock",
     },
     {
+      id: 4,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -63,6 +71,8 @@ const OurProductCards = () => {
       availability: "Out of Stock",
     },
     {
+      id: 5,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -71,6 +81,8 @@ const OurProductCards = () => {
       availability: "Out of Stock",
     },
     {
+      id: 6,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -79,6 +91,8 @@ const OurProductCards = () => {
       availability: "In Stock",
     },
     {
+      id: 7,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -87,6 +101,8 @@ const OurProductCards = () => {
       availability: "Out of Stock",
     },
     {
+      id: 8,
+
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
       price: "12.99",
@@ -112,6 +128,10 @@ const OurProductCards = () => {
     const availabilityMatches = product.availability === selectedAvailability;
     return categoryMatches && availabilityMatches;
   });
+
+  const handleDetail = (id) => {
+    navigate(`/product-details/${id}`);
+  };
 
   return (
     <Box sx={{ padding: "5% 5%" }}>
@@ -163,7 +183,6 @@ const OurProductCards = () => {
           </Card>
 
           <br />
-
 
           <Box sx={{ padding: "0.5rem 0rem 0rem 0rem" }}>
             <Accordion sx={{ padding: "0", "&:before": { display: "none" } }}>
@@ -273,7 +292,6 @@ const OurProductCards = () => {
           </Box>
 
           <br />
-          
 
           <Box sx={{ padding: "0.5rem 0rem 0rem 0rem" }}>
             <Accordion sx={{ padding: "0", "&:before": { display: "none" } }}>
@@ -337,7 +355,7 @@ const OurProductCards = () => {
             <Grid container spacing={3}>
               {filteredProducts.map((row, index) => (
                 <Grid key={index} item lg={4} md={6} sm={12} xs={12}>
-                  <Box>
+                  <Box onClick={() => handleDetail(row.id)}>
                     <Box sx={{ width: "100%" }}>
                       <img
                         src={row.img}

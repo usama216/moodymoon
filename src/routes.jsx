@@ -19,7 +19,7 @@ export default function Router() {
         element : <OurProductMain /> ,
        },
        {
-        path:'our-products-detail',
+        path:'/product-details/:id',
         element : <ProductDetailMain /> ,
        },
        {

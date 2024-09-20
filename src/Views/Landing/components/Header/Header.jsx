@@ -94,7 +94,7 @@ const handleCartOpen = ()=>{
    <>
     <Box sx={{
       position:'absolute',
-      top:'0', 
+      top:'0',
       transition:'1s',
       right:isCartOpen ? '0':'-1000px',
       zIndex:'99'
@@ -103,7 +103,7 @@ const handleCartOpen = ()=>{
       </Box>
       <Box
         sx={{
-          padding: "1rem 5%",
+          padding: "0.5rem 5%",
           color: "black",
           display: "flex",
           justifyContent: "space-between",
@@ -112,18 +112,18 @@ const handleCartOpen = ()=>{
       >
         <FlexBox sx={{ gap: "1rem" }}>
           <Box onClick={handleHome} sx={{cursor:'pointer'}}>
-  
+
           <Image src="/logo.svg" sx={{
-            width:'3rem'
+            width:'4rem'
           }} />
           </Box>
-  
+
         </FlexBox>
-  
+
         <Box
           sx={{
             display: { xs: "none", sm: "flex" },
-            gap: 3,
+            gap: 9,
             alignItems: "center",
           }}
         >
@@ -135,9 +135,9 @@ const handleCartOpen = ()=>{
                 setDrawerOpen(false);
               }}
               sx={{
-                fontSize:  "1rem",
+                fontSize:  "0.9rem",
                 cursor: "pointer",
-                fontWeight:500,
+                fontWeight:550,
                 color: "black",
                 ":hover": {
                   color: theme.palette.primary.main,
@@ -148,7 +148,7 @@ const handleCartOpen = ()=>{
             </Typography>
           ))}
         </Box>
-  
+
         <FlexBox sx={{ display: { xs: "none", sm: "flex", gap: "1rem" } }}>
         <TextField
         // size="small"
@@ -193,7 +193,7 @@ const handleCartOpen = ()=>{
          }}>
          <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
          </Button>
-  
+
           <Button
             onClick={handleLogin}
             sx={{
@@ -214,12 +214,12 @@ const handleCartOpen = ()=>{
             <FaRegCircleUser style={{marginRight:'0.5rem', fontSize:'1.2rem'}} />
             Sign Up
           </Button>
-  
+
           {/* <Box
             sx={{
               display: "flex",
               alignItems: "center",
-  
+
               cursor: "pointer",
             }}
           >
@@ -263,7 +263,7 @@ const handleCartOpen = ()=>{
                     >
                       My orders
                     </MenuItem>
-  
+
                     <MenuItem
                       sx={{ fontSize: "0.8rem" }}
                       value="assembly workshop"
@@ -271,7 +271,7 @@ const handleCartOpen = ()=>{
                     >
                       My Assembly Workshop
                     </MenuItem>
-  
+
                     <MenuItem
                       sx={{ fontSize: "0.8rem" }}
                       value="customer data"
@@ -279,7 +279,7 @@ const handleCartOpen = ()=>{
                     >
                       Customer Data
                     </MenuItem>
-  
+
                     <MenuItem
                       sx={{ fontSize: "0.8rem" }}
                       value="Logout"
@@ -306,7 +306,7 @@ const handleCartOpen = ()=>{
             )}
           </Box> */}
         </FlexBox>
-  
+
         <Box sx={{ display: { xs: "flex", sm: "none" } }}>
           <IconButton onClick={handleDrawerOpen}>
             <MenuIcon />
@@ -321,7 +321,7 @@ const handleCartOpen = ()=>{
               </IconButton>
               <br />
               <br />
-  
+
               {menuItems.map((item, index) => (
                 <Box key={index}>
                   <Typography
