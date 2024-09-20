@@ -8,80 +8,73 @@ import {
   Grid,
   IconButton,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 
 const ContactUsCard = () => {
   const theme = useTheme();
-
+const isSmall = useMediaQuery(theme.breakpoints.down('md'))
   const listData = [
     {
-      icon: <IoMdMail />,
+      icon: <TiLocation />,
       title: "Our Location",
-      des: "102 Smith Sawyer, Cave Junction,OR 97523",
+      des: "102 Smith Sawyer, Cave Junction, OR 97523",
       last: "View On Google Map",
-      divw:'2px', divh:'100%'
+      link: "https://www.google.com/maps/search/?api=1&query=102+Smith+Sawyer,+Cave+Junction,+OR+97523",
     },
     {
       icon: <IoMdMail />,
-      title: "Our Location",
-      des: "102 Smith Sawyer, Cave Junction,OR 97523",
-      last: "View On Google Map",
-      divw:'2px', divh:'100%'
+      title: "Email Us",
+      des: "Email us for assistance; we work closely with you.",
+      last: "moodymoonhemp@gmail.com",
+      link: "mailto:moodymoonhemp@gmail.com",
     },
     {
-      icon: <IoMdMail />,
-      title: "Our Location",
-      des: "102 Smith Sawyer, Cave Junction,OR 97523",
-      last: "View On Google Map",
-      divw:'0', divh:'0'
+      icon: <FaPhone />,
+      title: "Call Us",
+      des: "Call for assistance; we collaborate closely to help you.",
+      last: "Give us a call",
+      link: "tel:+1234567890", // Replace with the actual phone number
     },
   ];
-  return (
-    <>
-      <Box sx={{ marginTop: "2rem" }}>
 
-       <Box sx={{padding:'0% 5%', position :'relative', zIndex:'5', }}>
-       <Box
+  return (
+    <Box sx={{ marginTop: "4rem" }}>
+      <Box sx={{ padding: "0% 5%", position: "relative", zIndex: "5" }}>
+        <Box
           sx={{
-            padding: "2rem",
-            boxShadow: "2px 2px 10px black",
-            marginBottom:'-2rem', borderRadius:'5px',
-            backgroundColor:'white'
+            // padding: "2rem",
+            boxShadow: "2px 2px 10px grey",
+            marginBottom: "-2rem",
+            borderRadius: "5px",
+            backgroundColor: "white",
           }}
         >
-          <Grid container>
+          <Grid container spacing={2}>
             {listData.map((row, index) => (
               <Grid key={index} item lg={4} md={4} sm={6} xs={12}>
                 <Box
                   sx={{
                     display: "flex",
-                    width: "100%",
-                    justifyContent:'space-between'
-                    //  borderRight:'2px solid #195630'
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: { xs: "0rem 1rem", md: "2rem" },
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      height: "100%",
+                  <IconButton
+                    style={{
+                      fontSize:isSmall ? "2rem": "4rem",
+                      color: theme.palette.primary.main,
                     }}
                   >
-                    <IconButton
-                      style={{
-                        fontSize: "4rem",
-                        color: theme.palette.primary.main,
-                      }}
-                    >
-                      {row.icon}
-                    </IconButton>
-                  </Box>
-                  <Box>
+                    {row.icon}
+                  </IconButton>
+                  <Box sx={{ flexGrow: 1, paddingLeft: "1rem" }}>
                     <Typography
                       sx={{
-                        fontSize: "1.1rem",
-                        fontWeight: 500,
+                        fontSize: { xs: "1rem", md: "1.1rem" },
+                        fontWeight: 600,
                         color: theme.palette.primary.main,
                         marginBottom: "0.5rem",
                       }}
@@ -90,52 +83,55 @@ const ContactUsCard = () => {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "1.1rem",
-                        fontWeight: 500,
-                        color: theme.palette.primary.main,
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      102 Smith Sawyer, Cave Junction,OR 97523
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: "1.1rem",
+                        fontSize: { xs: "0.8rem", md: "1.1rem" },
                         fontWeight: 400,
                         color: "black",
                       }}
-                    ></Typography>{" "}
+                    >
+                      {row.des}
+                    </Typography>
+                    <br />
                     <Typography
+                      component="a"
+                      href={row.link}
                       sx={{
-                        fontSize: "1.2rem",
+                        textDecoration: 'none',
+                        fontSize: { xs: "0.8rem", md: "1.2rem" },
                         fontWeight: 600,
                         color: "black",
                       }}
                     >
-                      View On Google Map
+                      {row.last}
                     </Typography>
+                    
                   </Box>
-                  <Box>
+
+                  {index < listData.length - 1 && (
                     <Divider
-                      style={{
-                        backgroundColor: "green",
-                        height: `${row.divw}`,
-                        width:`${row.divh}`,
+                      orientation="vertical"
+                      sx={{
+                        display:isSmall ? 'none':'block',
+                        height: "100px",
+                        borderColor: "black",
+                        marginLeft: "1rem",
+                        marginRight: "1rem",
                       }}
                     />
-                  </Box>
+                  )}
                 </Box>
               </Grid>
             ))}
           </Grid>
         </Box>
-       </Box>
-        <Box sx={{position :'relative', zIndex:'-3'}}>
-          <img src="/contactcard.png" alt="" style={{width:'100%', height:'30rem'}}/>
-        </Box>
-
       </Box>
-    </>
+      <Box sx={{ position: "relative", zIndex: "-3" }}>
+        <img
+          src="/contactcard.png"
+          alt=""
+          style={{ width: "100%", height: "auto" }}
+        />
+      </Box>
+    </Box>
   );
 };
 

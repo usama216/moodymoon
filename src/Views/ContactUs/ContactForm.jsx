@@ -15,7 +15,7 @@ const CustomTextField = styled(TextField)({
       },
       backgroundColor: 'transparent',
       color: 'white',
-     
+
     },
     '& .MuiInputBase-input': {
       color: 'white',

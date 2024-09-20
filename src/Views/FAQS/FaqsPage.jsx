@@ -13,11 +13,11 @@ const FaqsPage = () => {
   return (
    <>
    <Box sx={{
-    boxSizing:'border-box', 
-    padding:'0% 5%'
+    boxSizing:'border-box',
+    padding:'3rem 5%'
    }}>
     <Grid container spacing={10}>
-        <Grid item lg={6} md={6} sm={12} xs={12}> 
+        <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box sx={{width:'100%', height:'100%'}}>
             <Typography
               sx={{
@@ -25,10 +25,11 @@ const FaqsPage = () => {
                 fontSize: isSmallScreen
                   ? "1.5rem"
                   : isMediumScreen
-                  ? "2.5rem"
-                  : "2.5rem",
+                  ? "2rem"
+                  : "2rem",
                 fontWeight: 600,
                 textTransform: "uppercase",
+                mb:1
               }}
             >
              Frequently Asking Questions
@@ -36,7 +37,7 @@ const FaqsPage = () => {
             <Faqs/>
             </Box>
         </Grid>
-        <Grid item lg={6} md={6} sm={12} xs={12}> 
+        <Grid item lg={6} md={6} sm={12} xs={12}>
             <Box sx={{width:'100%', height:'100%'}}>
                 <img src="/faqsimg1.png" alt="" width={'100%'} height={'650rem'}/>
             </Box>
