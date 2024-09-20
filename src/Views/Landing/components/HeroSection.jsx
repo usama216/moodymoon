@@ -35,11 +35,11 @@ const HeroSection = () => {
           <Box sx={{ display: "flex" }}>
             <Typography sx={{ fontSize: "1rem", color: "white" }}>
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                Home
+                Home /
               </Link>
             </Typography>
             <Typography
-              sx={{ fontSize: "1rem", marginLeft: "1rem", color: "white" }}
+              sx={{ fontSize: "1rem",color: "white" }}
             >
 
             </Typography>
