@@ -16,7 +16,7 @@ const CustomTextField = styled(TextField)({
       },
       backgroundColor: '#f8f8f8',
       color: 'black',
-     
+
     },
     '& .MuiInputBase-input': {
       color: 'black',
@@ -35,7 +35,7 @@ const CustomTextField = styled(TextField)({
   });
 const ContactForm = () => {
   const theme = useTheme()
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));  
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   return (
@@ -49,14 +49,14 @@ const ContactForm = () => {
       padding:'2rem',
       boxSizing:'border-box',
       margin:'auto',
-      width:isSmallScreen ? '100%': isMediumScreen ? '80%': '50%', 
+      width:isSmallScreen ? '100%': isMediumScreen ? '80%': '50%',
       // borderRadius:'10px',
       // boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
     }}>
 
       {/* ========================================TEXT================================================= */}
       <Typography sx={{
-                marginLeft:'1rem', 
+                marginLeft:'1rem',
                 fontSize:isSmallScreen ? '2rem': isMediumScreen  ?  "2.5rem": '3rem',
                 fontWeight:'600', textAlign:'center',
                 marginBottom:'2rem'
@@ -64,7 +64,7 @@ const ContactForm = () => {
               Get Touch With Us
               </Typography>
               <Typography sx={{
-                marginLeft:'1rem', 
+                marginLeft:'1rem',
                 fontSize:isSmallScreen ? '1rem': isMediumScreen  ?  "1rem": '1.1rem',
                 fontWeight:'500', textAlign:'center', lineHeight:'1.2', marginBottom:'2rem'
               }}>
@@ -80,7 +80,7 @@ const ContactForm = () => {
                  }}>
                   Your Name*
                  </Typography>
-                <CustomTextField 
+                <CustomTextField
                 // onChange={handleFormValue}
                 // value={formValue.fullName}
                 name="name"
@@ -99,7 +99,7 @@ const ContactForm = () => {
                  }}>
                   Your Email*
                  </Typography>
-                <CustomTextField 
+                <CustomTextField
                 // onChange={handleFormValue}
                 // value={formValue.phone}
                 name="email"
@@ -118,7 +118,7 @@ const ContactForm = () => {
                  }}>
                   Your Message*
                  </Typography>
-            <CustomTextField 
+            <CustomTextField
             // onChange={handleFormValue}
             // value={formValue.message}
             name="message"
@@ -133,8 +133,8 @@ const ContactForm = () => {
             <Box sx={{
               display:'flex', alignItems:'center',marginTop:'2rem'
             }}>
-              <input type="checkbox" id='custom-checkbox' 
-              // style={{ display:'none',  }} 
+              <input type="checkbox" id='custom-checkbox'
+              // style={{ display:'none',  }}
               />
               {/* <label htmlFor="custom-checkbox" style={{
                 display:'inline-block',
@@ -143,17 +143,17 @@ const ContactForm = () => {
                 cursor:'pointer'
               }}></label> */}
               <Typography sx={{
-                marginLeft:'1rem', 
-                fontSize:isSmallScreen ? '0.9rem': '1rem', 
+                marginLeft:'1rem',
+                fontSize:isSmallScreen ? '0.9rem': '1rem',
               }}>
               Save my name, email, and website in this browser.
               </Typography>
             </Box>
 
-            <Button 
+            <Button
              sx={{
               width:'100%',
-              marginTop:'2rem', 
+              marginTop:'2rem',
               color:'white',
                textTransform:'none',
               backgroundColor:theme.palette.primary.main,

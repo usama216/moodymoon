@@ -315,7 +315,7 @@ const OurProductCards = () => {
       price: "12.99",
       star: "5",
       review: "6",
-      availability: "In Stock", // Add availability property
+      availability: "In Stock",
     },
 
     {
@@ -481,7 +481,7 @@ const OurProductCards = () => {
                   onChange={() => setSelectedAvailability("Out of Stock")}
                 />
                 <Typography sx={{ color: "red", mb: 1 }}>
-                  Out of stock (0)
+                  Out of stock ({filteredProducts.length})
                 </Typography>
               </Box>
             </Box>

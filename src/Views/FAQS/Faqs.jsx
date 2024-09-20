@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Fade from '@mui/material/Fade';
+import * as React from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Fade from "@mui/material/Fade";
 
-const  Faqs =()=> {
+const Faqs = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpansion = () => {
@@ -23,23 +23,24 @@ const  Faqs =()=> {
         sx={[
           expanded
             ? {
-                '& .MuiAccordion-region': {
-                  height: 'auto',
+                "& .MuiAccordion-region": {
+                  height: "auto",
                 },
-                '& .MuiAccordionDetails-root': {
-                  display: 'block',
+                "& .MuiAccordionDetails-root": {
+                  display: "block",
                 },
               }
             : {
-                '& .MuiAccordion-region': {
+                "& .MuiAccordion-region": {
                   height: 0,
                 },
-                '& .MuiAccordionDetails-root': {
-                  display: 'none',
+                "& .MuiAccordionDetails-root": {
+                  display: "none",
                 },
               },
         ]}
       >
+
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -54,7 +55,7 @@ const  Faqs =()=> {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -200,7 +201,6 @@ const  Faqs =()=> {
       </Accordion>
     </div>
   );
-}
-
+};
 
 export default Faqs;
