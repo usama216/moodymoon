@@ -28,6 +28,8 @@ const StyledFooter = styled(Box)(({ theme }) => ({
   background: "#265630",
   color: "white",
   padding: "2rem 5%",
+  position:'relative',
+  overflow:'hidden'
 }));
 
 const Footer = () => {
@@ -100,6 +102,11 @@ const Footer = () => {
 
   return (
     <StyledFooter>
+       <img src="/footerbg.png" alt="" style={{
+        position:'absolute',
+        right:0, 
+        bottom:0
+      }}/> 
       <Grid container spacing={5} sx={{paddingTop:isSmallScreen ?  "1rem": '3rem'}}>
         <Grid item lg={3} sm={6} xs={12}>
           <FlexBox sx={{ gap: "1rem" }}>
