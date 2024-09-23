@@ -26,9 +26,10 @@ const ShoppingCart = ({closecart}) => {
     <>
     <Box sx={{
     bgcolor:theme.palette.primary.main,
-     width:'30rem', height:'100vh', zIndex:'99', p:3
+    boxSizing:'border-box',
+     width:isSmallScreen ? '20rem': isMediumScreen ? "25rem":'30rem', height:'100vh', zIndex:'99', p:3
     }}>
-       <Box sx={{display:'flex', justifyContent:'space-between'}}>
+       <Box sx={{display:'flex',alignItems:'center' ,justifyContent:'space-between'}}>
        <Typography
                 sx={{
                     colorL:'white',
@@ -46,12 +47,14 @@ const ShoppingCart = ({closecart}) => {
               <IconButton 
               onClick={closecart}
               >
-              <IoMdClose  style={{fontSize:'2.5rem', p:2, backgroundColor:'#ffffff49', borderRadius:'100px', color:'white'}}/>
+              <IoMdClose  style={{fontSize: isSmallScreen ? "1.5rem": isMediumScreen ?'2.3rem' :'2.5rem', 
+                p:2, backgroundColor:'#ffffff49', borderRadius:'100px', color:'white'}}/>
               </IconButton>
        </Box>
 
        <Divider sx={{backgroundColor:'lightgray', width:'100%', height:'0.1px', color:'lightgray', my:3}}/>
 
+      
 
     </Box>
     </> 

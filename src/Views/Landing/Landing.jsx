@@ -10,13 +10,15 @@ import BlogsMain from "./Blogs/BlogsMain";
 import ProductSample from "./ProductSample/ProductSample";
 import Testimonial from "./Testimonial/Testimonial";
 import ProductFeature from "./ProductFeature/productFeature";
+import { Box } from "@mui/material";
 
 
 
 const Landing = () => {
   return (
     <Page title="Moody Moon">
-      <Hero />
+     {/* <Box sx={{overflow:'hidden'}}> */}
+     <Hero />
       <Category />
       <Video />
 
@@ -26,6 +28,7 @@ const Landing = () => {
       <ProductFeature/>
       
       <Testimonial/>
+     {/* </Box> */}
     </Page>
   );
 };

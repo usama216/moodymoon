@@ -92,13 +92,35 @@ const handleCartOpen = ()=>{
 }
   return (
    <>
-    <Box sx={{
-      position:'absolute',
+   <Box sx={{
+     width:'100%',
+    boxSizing:'border-box',
+     overflow:'hidden',
+  }}>
+    <Box
+  sx={{
+    transition: 'opacity 1s ease-in-out, visibility 0s linear 0.5s',
+     // Smooth opacity transition
+    opacity: isCartOpen ? 1 : 0, // Fully visible when open, fully invisible when closed
+    visibility: isCartOpen ? 'visible' : 'hidden', // Hides the element when not visible
+    background: '#ffffff86',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: '98',
+  }}
+></Box>
+
+   <Box sx={{
+      position:'fixed',
       top:'0',
-      transition:'2s',
-      right:isCartOpen ? '0':'-1000px',
-      display:isCartOpen ?  "flex": 'none',
-      zIndex:'99'
+      transition:'1s',
+      right:isCartOpen ? '0':'-100%',
+      // display:isCartOpen ?  "flex": 'none',
+      zIndex:'99',
+      overflow:'hidden'
     }}>
       <ShoppingCart 
       closecart = {handleCartOpen}
@@ -362,6 +384,7 @@ const handleCartOpen = ()=>{
           </Drawer>
         </Box>
       </Box>
+   </Box>
    </>
   );
 };
