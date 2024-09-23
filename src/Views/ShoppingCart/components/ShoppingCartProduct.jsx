@@ -54,56 +54,56 @@ const CustomTextField = styled(TextField)({
 });
 
 const DiscountTextField = styled(TextField)({
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "green",
-        borderRadius: "15px",
-        // size:'medium'
-      },
-      "&:hover fieldset": {
-        borderColor: "green",
-        borderRadius: "10px",
-      },
-      "&.Mui-focused fieldset": {
-        borderRadius: "10px",
-
-        borderColor: "green",
-      },
-      backgroundColor: "white",
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "green",
+      borderRadius: "15px",
+      // size:'medium'
+    },
+    "&:hover fieldset": {
+      borderColor: "green",
+      borderRadius: "10px",
+    },
+    "&.Mui-focused fieldset": {
       borderRadius: "10px",
 
-      color: "black",
+      borderColor: "green",
     },
-    "& .MuiInputBase-input": {
-      borderRadius: "10px",
-textAlign: "center",
-      color: "black",
-    },
-    "& .MuiInputLabel-root": {
-      borderRadius: "10px",
+    backgroundColor: "white",
+    borderRadius: "10px",
 
-      color: "white",
-    },
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "black",
-    },
-    "& .MuiOutlinedInput-input::placeholder": {
-      fontSize: "0.9rem",
-      color: "green",
-textAlign: "center",
-      opacity: 1, // Ensure the placeholder is fully opaque
-    },
-  });
+    color: "black",
+  },
+  "& .MuiInputBase-input": {
+    borderRadius: "10px",
+    textAlign: "center",
+    color: "black",
+  },
+  "& .MuiInputLabel-root": {
+    borderRadius: "10px",
+
+    color: "white",
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "black",
+  },
+  "& .MuiOutlinedInput-input::placeholder": {
+    fontSize: "0.9rem",
+    color: "green",
+    textAlign: "center",
+    opacity: 1, // Ensure the placeholder is fully opaque
+  },
+});
 
 const ShoppingCartProduct = () => {
   return (
     <>
       <Box sx={{ display: "flex", width: "60%" }}>
         <Box>
-          <img src="/OPcard1.png" width="100%" />
+          <img src="/OPcard1.png" width="140rem" height={"150rem"} />
         </Box>
 
-        <Box>
+        <Box sx={{ marginLeft: "1rem" }}>
           <Typography sx={{ fontSize: "1.5rem", fontWeight: 700 }}>
             Ice Cream Cake - THC A Exotic Indoor PreRoll
           </Typography>
@@ -219,7 +219,6 @@ const ShoppingCartProduct = () => {
             }}
           />
         </Button>
-
       </Box>
     </>
   );

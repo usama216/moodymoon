@@ -18,6 +18,7 @@ function ShoppingCartMain() {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "70vh",
+        marginTop:'5rem'
       }}
     >
       <Card sx={{ padding: "2rem", width: '60%' }}>
