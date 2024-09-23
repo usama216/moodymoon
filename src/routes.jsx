@@ -6,6 +6,7 @@ import OurProductMain from "./Views/OurProducts/OurProductMain";
 import ProductDetailMain from "./Views/ProductDetail/ProductDetailMain";
 import ContactUsMain from "./Views/ContactUs/ContactUsMain";
 import ShoppingCartMain from "./Views/ShoppingCart/ShoppingCartMain";
+import CheckOutMain from "./Views/CheckOutwithPaymentPage/CheckOutMain";
 
 
 
@@ -39,6 +40,11 @@ export default function Router() {
        {
         path:'/shopping-cart-details',
         element : <ShoppingCartMain/> ,
+       },
+
+       {
+        path:'/checkout',
+        element : <CheckOutMain/> ,
        },
 
     ])

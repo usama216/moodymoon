@@ -5,18 +5,19 @@ import {
   styled,
   TextField,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import React from "react";
-import { CgDisplayFullwidth } from "react-icons/cg";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const CustomTextField = styled(TextField)({
   width: "100%",
+
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "#b5c7bc",
       borderRadius: "10px",
-      // size:'medium'
     },
     "&:hover fieldset": {
       borderColor: "#a2c0ad",
@@ -57,30 +58,30 @@ const DiscountTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "green",
-      borderRadius: "15px",
-      // size:'medium'
+      borderRadius: "8px",
+      size: "small",
     },
     "&:hover fieldset": {
       borderColor: "green",
-      borderRadius: "10px",
+      borderRadius: "8px",
     },
     "&.Mui-focused fieldset": {
-      borderRadius: "10px",
+      borderRadius: "8px",
 
       borderColor: "green",
     },
     backgroundColor: "white",
-    borderRadius: "10px",
+    borderRadius: "8px",
 
     color: "black",
   },
   "& .MuiInputBase-input": {
-    borderRadius: "10px",
+    borderRadius: "8px",
     textAlign: "center",
     color: "black",
   },
   "& .MuiInputLabel-root": {
-    borderRadius: "10px",
+    borderRadius: "8px",
 
     color: "white",
   },
@@ -88,33 +89,82 @@ const DiscountTextField = styled(TextField)({
     color: "black",
   },
   "& .MuiOutlinedInput-input::placeholder": {
-    fontSize: "0.9rem",
+    fontSize: "1.1rem",
     color: "green",
     textAlign: "center",
-    opacity: 1, // Ensure the placeholder is fully opaque
+    opacity: 1,
   },
 });
 
 const ShoppingCartProduct = () => {
+  const theme = useTheme();
+
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
+
+  const productdata = [
+    {
+      id:1,
+      image: "/OPcard1.png",
+      title: "title 2",
+      price: "12.99",
+      quantity: "1",
+    },
+    {
+      id:2,
+      image: "/OPcard1.png",
+      title: "title 2",
+      price: "14.00",
+      quantity: "1",
+    },
+  ];
   return (
     <>
-      <Box sx={{ display: "flex", width: "60%" }}>
-        <Box>
-          <img src="/OPcard1.png" width="140rem" height={"150rem"} />
-        </Box>
+      {productdata.map((val, ind) => (
+        <>
+          <Box
+            sx={{
+              display: "flex",
+              width: isSmall ? "100%" : "60%",
+              marginTop: "1rem",
+            }}
+          >
+            <Box>
+              <img src={val.image} width="140rem" height={"145rem"} />
+            </Box>
 
-        <Box sx={{ marginLeft: "1rem" }}>
-          <Typography sx={{ fontSize: "1.5rem", fontWeight: 700 }}>
-            Ice Cream Cake - THC A Exotic Indoor PreRoll
-          </Typography>
+            <Box sx={{ marginLeft: "1rem" }}>
+              <Typography
+                sx={{
+                  fontSize: isSmall ? "0.9rem" : "1.5rem",
+                  fontWeight: 700,
+                }}
+              >
+                Ice Cream Cake - THC A Exotic Indoor PreRoll
+              </Typography>
 
-          <Typography sx={{ color: "green", fontWeight: "700" }}>
-            $ 12.99
-          </Typography>
+              <Typography
+                sx={{
+                  fontSize: isSmall ? "0.8rem" : "1rem",
+                  color: "green",
+                  fontWeight: "700",
+                }}
+              >
+                $ {val.price}
+              </Typography>
 
-          <Typography sx={{ fontWeight: "700" }}>Count: 1ct</Typography>
-        </Box>
-      </Box>
+              <Typography
+                sx={{
+                  fontWeight: "700",
+                  fontSize: isSmall ? "0.8rem" : "1rem",
+                }}
+              >
+                Count: {val.quantity}ct
+              </Typography>
+            </Box>
+          </Box>
+        </>
+      ))}
+
       <br />
       <Divider />
 
@@ -128,13 +178,15 @@ const ShoppingCartProduct = () => {
       >
         <Box>
           <Box sx={{ display: "flex" }}>
-            <Typography sx={{ fontSize: "1.3rem", fontWeight: 600 }}>
+            <Typography
+              sx={{ fontSize: isSmall ? "0.9rem" : "1.3rem", fontWeight: 600 }}
+            >
               SubTotal:
             </Typography>
             <Typography
               sx={{
                 color: "green",
-                fontSize: "1.3rem",
+                fontSize: isSmall ? "0.9rem" : "1.3rem",
                 fontWeight: 600,
                 marginLeft: "10px",
               }}
@@ -143,17 +195,23 @@ const ShoppingCartProduct = () => {
               $12.99
             </Typography>
           </Box>
-
-          <Typography>Taxes and shipping calculated at checkout</Typography>
+          <Typography
+            sx={{
+              fontSize: isSmall ? "0.8rem" : "1rem",
+              display: isSmall ? "none" : "block",
+            }}
+          >
+            Taxes and shipping calculated at checkout
+          </Typography>
         </Box>
 
         <Button
           variant="contained"
           sx={{
             textTransform: "none",
-            fontSize: "1rem",
+            fontSize: isSmall ? "0.8rem" : "1rem",
             fontWeight: "600",
-            padding: "0.7rem 5rem",
+            padding: isSmall ? "0.4rem 0.8rem" : "0.7rem 2.5rem",
             backgroundColor: "#51a2dc",
             borderRadius: "7px",
           }}
@@ -161,13 +219,23 @@ const ShoppingCartProduct = () => {
           Continue Shopping{" "}
           <FiArrowUpRight
             style={{
-              marginLeft: "1.5rem",
-              fontSize: "1.5rem",
+              display: isSmall ? "none" : "block",
+              marginLeft: isSmall ? "0rem" : "1.5rem",
+              fontSize: isSmall ? "0.8rem" : "1.5rem",
               backgroundColor: "transparent",
             }}
           />
         </Button>
       </Box>
+      <Typography
+        sx={{
+          fontSize: isSmall ? "0.8rem" : "1rem",
+          display: isSmall ? "block" : "none",
+          marginTop: "0.3rem",
+        }}
+      >
+        Taxes and shipping calculated at checkout
+      </Typography>
 
       <Box sx={{ marginTop: "2rem" }}>
         <Typography sx={{ fontWeight: 550 }}>Add Note</Typography>
@@ -179,10 +247,10 @@ const ShoppingCartProduct = () => {
         variant="contained"
         fullWidth
         sx={{
-          borderRadius: "12px",
-          marginTop: "2rem",
+          borderRadius: isSmall ? "8px" : "12px",
+          marginTop: isSmall ? "1rem" : "2rem",
           textTransform: "none",
-          fontSize: "1.1rem",
+          fontSize: isSmall ? "0.9rem" : "1.1rem",
           fontWeight: 600,
         }}
       >
@@ -196,16 +264,20 @@ const ShoppingCartProduct = () => {
           alignitems: "center",
           marginTop: "2rem",
         }}
+        gap={2}
       >
-        <DiscountTextField placeholder="Discount code..." />
+        <DiscountTextField
+          size={isSmall ? "small" : "auto"}
+          placeholder="Discount code..."
+        />
 
         <Button
           variant="contained"
           sx={{
             textTransform: "none",
-            fontSize: "1rem",
+            fontSize: isSmall ? "0.9rem" : "1rem",
             fontWeight: "600",
-            padding: "0.7rem 2.5rem",
+            padding: isSmall ? "0.4rem 1rem" : "0.7rem 2.5rem",
 
             borderRadius: "7px",
           }}
@@ -213,8 +285,9 @@ const ShoppingCartProduct = () => {
           Apply{" "}
           <FiArrowUpRight
             style={{
-              marginLeft: "1.5rem",
-              fontSize: "1.5rem",
+              display: isSmall ? "none" : "block",
+              marginLeft: isSmall ? "0.6rem" : "1.5rem",
+              fontSize: isSmall ? "0.8rem" : "1.5rem",
               backgroundColor: "transparent",
             }}
           />
