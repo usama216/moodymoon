@@ -2,7 +2,9 @@ import { Box, Typography, useTheme, useMediaQuery, Button as MuiButton, IconButt
 import React from 'react';
 import { FiArrowUpRight } from "react-icons/fi";
 
-const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor, name, width}) => {
+const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor, name, width,
+    sfontSize,fontSize, p, sp, display
+}) => {
     const theme = useTheme();
     const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
     const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -14,7 +16,8 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
                 width:`${width}`,
                 textTransform: 'none',
                 backgroundColor: `${backgroundColor}`,
-                padding: isSmallScreen ? "0.3rem 1rem" : '0.5rem 2rem',
+                padding: isSmallScreen ? `${sp || '0.3rem 1rem'}` : `${p || '0.5rem 2rem'}`,
+
                 borderRadius: '50px',
                 display: 'flex',
                 alignItems: 'center', 
@@ -29,7 +32,7 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
             }}>
                 <Typography className='text' sx={{
                     color: `${color}`,
-                    fontSize: isSmallScreen ? "0.9rem" : '1rem',
+                    fontSize:  isSmallScreen ? `${sfontSize || '0.9rem'}` : `${fontSize || '1rem'}`,
                     fontWeight: 600,
                     textTransform: 'capitalize',
                     marginRight: '0.5rem'
@@ -37,6 +40,7 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
                     {name}
                 </Typography>
                 <IconButton  className='icon' sx={{fontSize:isSmallScreen? '1.1rem': '1.4rem',
+                display:isSmallScreen ? `${display}`:`block`,
                      color: `${color}`, backgroundColor:'transparent'}}>
                 <FiArrowUpRight style={{backgroundColor:'transparent'}} />
                 </IconButton>

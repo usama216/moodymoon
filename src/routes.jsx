@@ -6,6 +6,9 @@ import OurProductMain from "./Views/OurProducts/OurProductMain";
 import ProductDetailMain from "./Views/ProductDetail/ProductDetailMain";
 import ContactUsMain from "./Views/ContactUs/ContactUsMain";
 import ShoppingCartMain from "./Views/ShoppingCart/ShoppingCartMain";
+import SignIn from "./Views/Authentication/SignIn";
+import SignUp from "./Views/Authentication/SignUp";
+import RestPassword from "./Views/Authentication/RestPassword";
 
 
 
@@ -35,6 +38,19 @@ export default function Router() {
         path:'/contactus',
         element : <ContactUsMain/> ,
        },
+       {
+        path:'/login',
+        element : <SignIn/> ,
+       },
+       {
+        path:'/sign-up',
+        element : <SignUp/> ,
+       },
+       {
+        path:'/rest-password',
+        element : <RestPassword/> ,
+       },
+
 
        {
         path:'/shopping-cart-details',

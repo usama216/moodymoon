@@ -314,6 +314,7 @@ const ProductCard = () => {
 
 
             <Box sx={{display:'flex', justifyContent:'space-between', gap:2, marginTop:'2rem'}}>
+              
             <Box sx={{
                 bgcolor:'#ebebeb',
                 display:'flex', alignItems:'center', py:0.2, px:1,
