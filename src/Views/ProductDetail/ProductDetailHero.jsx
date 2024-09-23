@@ -8,7 +8,7 @@ const ProductDetailHero = () => {
     <>
       <Box
         sx={{
-          backgroundImage: "url(ourproductbg.png)",
+          backgroundImage: "url(/ourproductbg.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "none",
