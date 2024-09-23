@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Box, Card } from "@mui/material";
+import { Tabs, Tab, Box, Card, useMediaQuery, useTheme } from "@mui/material";
 import ShoppingCartProduct from "./components/ShoppingCartProduct";
 import ShoppingCartQuantity from "./components/ShoppingCartQuantity";
 import ShoppingCartTotal from "./components/ShoppingCartTotal";
 
 function ShoppingCartMain() {
   const [value, setValue] = useState(0);
-
+  const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -18,17 +19,24 @@ function ShoppingCartMain() {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "70vh",
-        marginTop:'5rem'
+        margin: isSmall ? "1rem 0rem" : "5rem 0rem",
+        padding: "0rem 5%",
       }}
     >
-      <Card sx={{ padding: "2rem", width: '60%' }}>
+      <Card
+        sx={{
+          padding: isSmall ? "1rem 0.5rem" : "2rem 1rem",
+          width: isSmall ? "100%" : "60%",
+          minHeight: "70vh",
+        }}
+      >
         <Box
           sx={{
             borderBottom: 1,
             borderColor: "transparent",
-            backgroundColor: '#f4f4f4',
-            borderRadius: '10px',
-            width: '100%',
+            backgroundColor: "#f4f4f4",
+            borderRadius: "10px",
+            width: "100%",
           }}
         >
           <Tabs
@@ -36,17 +44,18 @@ function ShoppingCartMain() {
             onChange={handleChange}
             aria-label="custom tabs"
             sx={{
-              borderRadius: '10px',
+              borderRadius: "10px",
               justifyContent: "space-between",
               flexGrow: 1,
             }}
           >
-            {["Product", "Quantity", "Total"].map((label, index) => (
+            {["Product", "Quantity & total", "Total"].map((label, index) => (
               <Tab
                 key={label}
                 label={label}
                 sx={{
                   flexGrow: 1,
+                  fontSize: isSmall ? "0.8rem" : "1.2rem",
                   textAlign: "center",
                   backgroundColor: value === index ? "#00593b" : "transparent",
                   color: value === index ? "white" : "black",

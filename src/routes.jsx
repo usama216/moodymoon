@@ -9,6 +9,7 @@ import ShoppingCartMain from "./Views/ShoppingCart/ShoppingCartMain";
 import SignIn from "./Views/Authentication/SignIn";
 import SignUp from "./Views/Authentication/SignUp";
 import RestPassword from "./Views/Authentication/RestPassword";
+import CheckOutMain from "./Views/CheckOutwithPaymentPage/CheckOutMain";
 
 
 
@@ -55,6 +56,11 @@ export default function Router() {
        {
         path:'/shopping-cart-details',
         element : <ShoppingCartMain/> ,
+       },
+
+       {
+        path:'/checkout',
+        element : <CheckOutMain/> ,
        },
 
     ])
