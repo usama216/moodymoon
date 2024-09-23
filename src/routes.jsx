@@ -5,6 +5,7 @@ import FaqsMain from "./Views/FAQS/FaqsMain";
 import OurProductMain from "./Views/OurProducts/OurProductMain";
 import ProductDetailMain from "./Views/ProductDetail/ProductDetailMain";
 import ContactUsMain from "./Views/ContactUs/ContactUsMain";
+import ShoppingCartMain from "./Views/ShoppingCart/ShoppingCartMain";
 
 
 
@@ -33,6 +34,11 @@ export default function Router() {
        {
         path:'/contactus',
         element : <ContactUsMain/> ,
+       },
+
+       {
+        path:'/shopping-cart-details',
+        element : <ShoppingCartMain/> ,
        },
 
     ])

@@ -40,7 +40,8 @@ const Header = () => {
   };
 
   const handleLogin = () => {
-    setDrawerOpen(false);
+    // setDrawerOpen(false);
+    navigate('/shopping-cart-details')
   };
 
   const handleDrawerClose = () => {
@@ -194,6 +195,7 @@ const handleCartOpen = ()=>{
          <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
          </Button>
 
+
           <Button
             onClick={handleLogin}
             sx={{
@@ -342,18 +344,7 @@ const handleCartOpen = ()=>{
                 </Box>
               ))}
               <Box sx={{ marginTop: 2 }}>
-                <Btn
-                  onClick={handleLogin}
-                  variant="contained"
-                  sx={{
-                    color: "white",
-                    textTransform: "none",
-                    fontSize: "0.9rem",
-                    width: "100%",
-                  }}
-                >
-                  The Checkout
-                </Btn>
+
               </Box>
             </Box>
           </Drawer>
