@@ -88,18 +88,21 @@ const handleHome = ()=>{
 const [isCartOpen , setIsCartOpen] = useState(false);
 
 const handleCartOpen = ()=>{
-  setIsCartOpen(!isCartOpen);
+  setIsCartOpen(prev => !prev);
 }
   return (
    <>
     <Box sx={{
       position:'absolute',
       top:'0',
-      transition:'1s',
+      transition:'2s',
       right:isCartOpen ? '0':'-1000px',
+      display:isCartOpen ?  "flex": 'none',
       zIndex:'99'
     }}>
-      <ShoppingCart/>
+      <ShoppingCart 
+      closecart = {handleCartOpen}
+      />
       </Box>
       <Box
         sx={{
