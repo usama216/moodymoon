@@ -107,6 +107,7 @@ const handleCartOpen = ()=>{
     width: '100%',
     height: '100%',
     position: 'fixed',
+    overflow:'hidden',
     top: 0,
     left: 0,
     zIndex: '98',
@@ -120,7 +121,8 @@ const handleCartOpen = ()=>{
       right:isCartOpen ? '0':'-100%',
       // display:isCartOpen ?  "flex": 'none',
       zIndex:'99',
-      overflow:'hidden'
+      overflow:'hidden',
+      height:'100%'
     }}>
       <ShoppingCart 
       closecart = {handleCartOpen}
@@ -380,6 +382,17 @@ const handleCartOpen = ()=>{
                   The Checkout
                 </Btn>
               </Box>
+              <Button
+         onClick={handleCartOpen}
+          sx={{ fontWeight:500,
+                color: "black",
+           border:'1px solid darkgray',
+           borderRadius:'50px',
+           padding:'0.5rem 1rem',
+           textTransform:'none'
+         }}>
+         <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
+         </Button>
             </Box>
           </Drawer>
         </Box>
