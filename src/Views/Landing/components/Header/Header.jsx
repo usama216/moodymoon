@@ -80,7 +80,7 @@ const Header = () => {
     { label: "Services", route: "/our-products" },
     { label: "Labe Test", route: "/lab-tests" },
     { label: "FAQS", route: "/faqs" },
-    { label: "Blogs", route: "/" },
+    { label: "Blogs", route: "/blogs" },
     { label: "Contact Us", route: "/contactus" },
   ];
 const handleHome = ()=>{
@@ -125,7 +125,7 @@ const handleCartOpen = ()=>{
       overflow:'hidden',
       height:'100%'
     }}>
-      <ShoppingCart 
+      <ShoppingCart
       closecart = {handleCartOpen}
       />
       </Box>
