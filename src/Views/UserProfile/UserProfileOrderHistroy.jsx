@@ -39,7 +39,7 @@ const UserProfileOrderHistroy = () => {
 
             <Box >
               {displayOrderHostory.map((row, index)=>(
-                  <Grid key={index} container spacing={4}> 
+                  <Grid key={index} container spacing={4}  sx={{marginBottom:'0.8rem'}}> 
                   <Grid item lg={3} md={3} sm={3} xs={3}>
                     <Box sx={{width:'100%', }}>
                     <img src={row.img} alt="" width={'100%'} height={'100%'} border={'1px solid gray'}/>
