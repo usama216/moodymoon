@@ -3,7 +3,7 @@ import React from 'react';
 import { FiArrowUpRight } from "react-icons/fi";
 
 const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor, name, width,
-    sfontSize,fontSize, p, sp, display
+    sfontSize,fontSize, p, sp, display,arrow, bb, br, pb, 
 }) => {
     const theme = useTheme();
     const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
@@ -17,11 +17,15 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
                 textTransform: 'none',
                 backgroundColor: `${backgroundColor}`,
                 padding: isSmallScreen ? `${sp || '0.3rem 1rem'}` : `${p || '0.5rem 2rem'}`,
+                paddingBottom:`${pb}`,
 
-                borderRadius: '50px',
+            
+                borderRadius:`${br || '50px'}`,
                 display: 'flex',
                 alignItems: 'center', 
                 border: `${border}`,
+                borderBottom:`${bb}`,
+                
                 '&:hover':{
                     backgroundColor: `${hbackgroundColor}`,
                  color:'white'
@@ -40,7 +44,8 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
                     {name}
                 </Typography>
                 <IconButton  className='icon' sx={{fontSize:isSmallScreen? '1.1rem': '1.4rem',
-                display:isSmallScreen ? `${display}`:`block`,
+                display:isSmallScreen ? `${display}`:`${arrow || 'block'}`,
+                p:`${p}`,
                      color: `${color}`, backgroundColor:'transparent'}}>
                 <FiArrowUpRight style={{backgroundColor:'transparent'}} />
                 </IconButton>
