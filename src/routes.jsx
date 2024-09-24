@@ -11,6 +11,7 @@ import SignUp from "./Views/Authentication/SignUp";
 import RestPassword from "./Views/Authentication/RestPassword";
 import CheckOutMain from "./Views/CheckOutwithPaymentPage/CheckOutMain";
 import UserProfileMain from "./Views/UserProfile/UserProfileMain";
+import BlogPageMain from "./Views/BlogsPage/BlogPageMain";
 
 
 
@@ -23,6 +24,10 @@ export default function Router() {
        {
         path:'our-products',
         element : <OurProductMain /> ,
+       },
+       {
+        path:'/blogs',
+        element : <BlogPageMain /> ,
        },
        {
         path:'/product-details/:id',
