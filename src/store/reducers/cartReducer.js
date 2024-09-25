@@ -66,7 +66,6 @@ export default function cartReducer(state = [], action) {
           }
           return cartItem;
         })
-        .filter((cartItem) => cartItem.quantity > 0);
     default:
       return state;
   }

@@ -19,7 +19,6 @@ import { addCartItem } from "../../store/reducers/cartReducer";
 const ProductCard = () => {
   const { id } = useParams();
   const productId = id;
-  // console.log('prodyjshsajdas', productId)
   const theme = useTheme();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ const ProductCard = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [orderQuantiy, setOrderQuantity] = useState(1);
-  // console.log('orrdererer' , orderQuantiy)
 
   const addtocartdata = {
     cardinfo: [
@@ -71,7 +69,7 @@ const ProductCard = () => {
       { name: "30C" },
     ],
   };
-  const [selectedImage, setSelectedImage] = useState("/OPcard1.png"); // Default image for the 9.5-column
+  const [selectedImage, setSelectedImage] = useState("/OPcard1.png");
   const [imgData, setImgData] = useState([
     { img: "/OPcard2.png" },
     { img: "/OPcard3.png" },
@@ -79,16 +77,16 @@ const ProductCard = () => {
   ]);
 
   const handleImageClick = (clickedImg, index) => {
-    const newImgData = [...imgData]; // Copy the current left-side images array
-    const previousLargeImage = selectedImage; // Store the current large image
+    const newImgData = [...imgData];
+    const previousLargeImage = selectedImage;
 
-    // Set the large image to the clicked image
+
     setSelectedImage(clickedImg);
 
-    // Replace the clicked image with the previous large image
+
     newImgData[index].img = previousLargeImage;
 
-    // Update the imgData state with the swapped image
+    
     setImgData(newImgData);
   };
   return (
@@ -401,7 +399,7 @@ const ProductCard = () => {
                   }}
                 >
                   <Box
-                    sx={{ 
+                    sx={{
                       bgcolor: "#ebebeb",
                       display: "flex",
                       alignItems: "center",
@@ -466,7 +464,7 @@ const ProductCard = () => {
                             price: cardinfodata.price,
                             image:cardinfodata.img
                           }),
-                          setOrderQuantity(1)
+                          // setOrderQuantity(1)
                         )
                       }
                       sx={{ width: "100%", textTransform: "none" }}
