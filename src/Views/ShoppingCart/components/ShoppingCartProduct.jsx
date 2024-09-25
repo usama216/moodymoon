@@ -149,7 +149,8 @@ const ShoppingCartProduct = () => {
   ];
   return (
     <>
-      {cartitem.map((val, ind) => (
+     <Box sx={{height:'30vh', overflow:'auto'}}>
+     {cartitem.map((val, ind) => (
         <>
           <Box
             sx={{
@@ -194,6 +195,7 @@ const ShoppingCartProduct = () => {
           </Box>
         </>
       ))}
+     </Box>
 
       <br />
       <Divider />
