@@ -10,7 +10,9 @@ import {
   Typography,
   useTheme,
   TextField,
-  InputAdornment
+  InputAdornment,
+  useMediaQuery,
+  Badge
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -23,10 +25,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCart from "../../../../components/ShoppingCart/ShoppingCart";
+import { useSelector } from "react-redux";
 
 
 
 const Header = () => {
+  const cartitem = useSelector((state)=>state.cartItem)
+  const is1200 = useMediaQuery('(max-width:1200px)'); 
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
@@ -150,8 +156,8 @@ const handleCartOpen = ()=>{
 
         <Box
           sx={{
-            display: { xs: "none", sm: "flex" },
-            gap: 9,
+            display: { xs: 'none',sm: "none", md: "flex" },
+            gap: is1200 ? 2 : 6,
             alignItems: "center",
           }}
         >
@@ -177,7 +183,207 @@ const handleCartOpen = ()=>{
           ))}
         </Box>
 
-        <FlexBox sx={{ display: { xs: "none", sm: "flex", gap: "1rem" } }}>
+        <FlexBox sx={{ display: { xs: 'none',sm: "none", md: "flex", gap: "0.5rem" } }}>
+        <TextField
+        // size="small"
+        sx={{
+          borderRadius: '50px',
+          width:is1200 ? '100px': '200px', // Adjust width as needed
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '50px',
+          },
+          '& .MuiInputBase-input': {
+            height: '7px', // Adjust height as needed
+            fontWeight: 500, // Font weight for the input text
+          },
+          '& .MuiInputLabel-root': {
+            color: 'black', // Placeholder color
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'black', // Border color to match placeholder color if needed
+          },
+          '& .MuiInputBase-input::placeholder': {
+            color: 'black', // Placeholder text color
+          },
+        }}
+        variant="outlined"
+        placeholder="Search..."
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+         <Button
+         onClick={handleCartOpen}
+          sx={{ fontWeight:500,
+                color: "black",
+           border:'1px solid darkgray',
+           borderRadius:'50px',
+           padding:'0.5rem 1rem',
+           textTransform:'none'
+         }}>
+          <Badge badgeContent={cartitem.length} color="primary">
+         <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
+         </Badge>
+         </Button>
+
+
+          <Button
+            onClick={handleLogin}
+            sx={{
+              color: "white",
+              border:'1px solid #265630',
+              backgroundColor:'#265630',
+              textTransform: "none",
+              fontSize: "0.9rem",
+              borderRadius:'50px',
+              padding:'0.5rem 1rem',
+              '&:hover':{
+                color: "#265630",
+                border:'1px solid #265630',
+                backgroundColor:'transparent',
+              }
+            }}
+          >
+            <FaRegCircleUser style={{marginRight:'0.5rem', fontSize:'1.2rem'}} />
+            Sign Up
+          </Button>
+
+          {/* <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+
+              cursor: "pointer",
+            }}
+          >
+            {auth ? (
+              <Box>
+                <FormControl sx={{ padding: 0 }}>
+                  <Select
+                    sx={{
+                      outline: "none",
+                      "&:focus": {
+                        outline: "none",
+                      },
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        border: "none",
+                      },
+                    }}
+                    value={selectedValue}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Select user" }}
+                    style={{ minWidth: "120px", padding: 0 }}
+                    renderValue={(selected) => (
+                      <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <Avatar
+                          alt=""
+                          src=""
+                          sx={{
+                            height: "2rem",
+                            width: "2rem",
+                            marginRight: "8px",
+                          }}
+                        />
+                        <Typography sx={{ fontSize: "1rem" }}> Usama</Typography>
+                      </Box>
+                    )}
+                  >
+                    <MenuItem
+                      sx={{ fontSize: "0.8rem" }}
+                      value="My orders"
+                      onClick={() => handleMenuItemClick("My orders")}
+                    >
+                      My orders
+                    </MenuItem>
+
+                    <MenuItem
+                      sx={{ fontSize: "0.8rem" }}
+                      value="assembly workshop"
+                      onClick={() => handleMenuItemClick("assembly workshop")}
+                    >
+                      My Assembly Workshop
+                    </MenuItem>
+
+                    <MenuItem
+                      sx={{ fontSize: "0.8rem" }}
+                      value="customer data"
+                      onClick={() => handleMen.uItemClick("customer data")}
+                    >
+                      Customer Data
+                    </MenuItem>
+
+                    <MenuItem
+                      sx={{ fontSize: "0.8rem" }}
+                      value="Logout"
+                      onClick={() => handleMenuItemClick("Logout")}
+                    >
+                      Logout
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            ) : (
+              <Button
+                // onClick={handleLogin}
+                variant="contained"
+                sx={{
+                  backgroundColor: theme.palette.primary.main,
+                  padding: "0.5rem 2rem",
+                  textTransform: "none",
+                  fontSize: "0.9rem",
+                }}
+              >
+                Login
+              </Button>
+            )}
+          </Box> */}
+
+        </FlexBox>
+
+        <Box sx={{ display: { sm: "flex", md: "none" } }}>
+          <IconButton onClick={handleDrawerOpen}>
+            <MenuIcon />
+          </IconButton>
+          <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerClose}>
+            <Box sx={{ width: 250, padding: "20px" }}>
+              <IconButton
+                onClick={handleDrawerClose}
+                sx={{ position: "absolute", top: "10px", right: "10px" }}
+              >
+                <CloseIcon />
+              </IconButton>
+              <br />
+              <br />
+
+              {menuItems.map((item, index) => (
+                <Box key={index}>
+                  <Typography
+                    onClick={() => {
+                      navigate(item.route);
+                      setDrawerOpen(false);
+                    }}
+                    sx={{
+                      fontSize: "0.9rem",
+                      marginBottom: 2,
+                      marginTop: 1,
+                      cursor: "pointer",
+                    }}
+                  >
+                    {item.label}
+                  </Typography>
+                  {index < menuItems.length - 1 && <Divider />}
+                </Box>
+              ))}
+              <Box sx={{ marginTop: 2 }}>
+
+              </Box>
+
+              <FlexBox sx={{ display:'flex', flexDirection:'column', alignItems:'start', gap:'1rem' }}>
         <TextField
         // size="small"
         sx={{
@@ -334,56 +540,8 @@ const handleCartOpen = ()=>{
               </Button>
             )}
           </Box> */}
+
         </FlexBox>
-
-        <Box sx={{ display: { xs: "flex", sm: "none" } }}>
-          <IconButton onClick={handleDrawerOpen}>
-            <MenuIcon />
-          </IconButton>
-          <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerClose}>
-            <Box sx={{ width: 250, padding: "20px" }}>
-              <IconButton
-                onClick={handleDrawerClose}
-                sx={{ position: "absolute", top: "10px", right: "10px" }}
-              >
-                <CloseIcon />
-              </IconButton>
-              <br />
-              <br />
-
-              {menuItems.map((item, index) => (
-                <Box key={index}>
-                  <Typography
-                    onClick={() => {
-                      navigate(item.route);
-                      setDrawerOpen(false);
-                    }}
-                    sx={{
-                      fontSize: "0.9rem",
-                      marginBottom: 2,
-                      marginTop: 1,
-                      cursor: "pointer",
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                  {index < menuItems.length - 1 && <Divider />}
-                </Box>
-              ))}
-              <Box sx={{ marginTop: 2 }}>
-
-              </Box>
-              <Button
-         onClick={handleCartOpen}
-          sx={{ fontWeight:500,
-                color: "black",
-           border:'1px solid darkgray',
-           borderRadius:'50px',
-           padding:'0.5rem 1rem',
-           textTransform:'none'
-         }}>
-         <IoCartOutline style={{ fontSize: "1.5rem" }} /> Cart
-         </Button>
             </Box>
           </Drawer>
         </Box>

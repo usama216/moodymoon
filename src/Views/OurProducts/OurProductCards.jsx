@@ -45,7 +45,7 @@ const OurProductCards = () => {
 
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
-      price: "12.99",
+      price: "13.99",
       star: "5",
       review: "6",
       availability: "In Stock",
@@ -55,7 +55,7 @@ const OurProductCards = () => {
 
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
-      price: "12.99",
+      price: "14.99",
       star: "5",
       review: "10",
       availability: "In Stock",
@@ -65,7 +65,7 @@ const OurProductCards = () => {
 
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
-      price: "12.99",
+      price: "15.99",
       star: "4",
       review: "64",
       availability: "Out of Stock",
@@ -75,7 +75,7 @@ const OurProductCards = () => {
 
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
-      price: "12.99",
+      price: "16.99",
       star: "3",
       review: "6",
       availability: "Out of Stock",
@@ -85,7 +85,7 @@ const OurProductCards = () => {
 
       img: "/OPcard1.png",
       title: "Ice Cream Cake - THC A Exotic Indoor PreRoll",
-      price: "12.99",
+      price: "117.99",
       star: "5",
       review: "65",
       availability: "In Stock",
@@ -351,12 +351,12 @@ const OurProductCards = () => {
 
         {/* ================================================RIGHT========================================== */}
         <Grid item lg={9} md={8} sm={6} xs={12}>
-          <Box>
-            <Grid container spacing={3}>
+          <Box >
+            <Grid container spacing={3} >
               {filteredProducts.map((row, index) => (
                 <Grid key={index} item lg={4} md={6} sm={12} xs={12}>
                   <Box onClick={() => handleDetail(row.id)}>
-                    <Box sx={{ width: "100%" }}>
+                    <Box sx={{ width: "100%", cursor:'pointer' }}>
                       <img
                         src={row.img}
                         alt=""

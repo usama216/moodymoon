@@ -1,10 +1,12 @@
 import { Box, Typography, useTheme, useMediaQuery, Button as MuiButton, IconButton } from '@mui/material';
 import React from 'react';
 import { FiArrowUpRight } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor, name, width,
-    sfontSize,fontSize, p, sp, display,arrow, bb, br, pb, 
+    sfontSize,fontSize, p, sp, display,arrow, bb, br, pb, path
 }) => {
+    const navigate = useNavigate();
     const theme = useTheme();
     const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
     const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -12,7 +14,9 @@ const CustomButton = ({border, backgroundColor, color, hcolor, hbackgroundColor,
 
     return (
         <>
-            <MuiButton sx={{
+            <MuiButton 
+            onClick={()=>navigate(path)}
+            sx={{
                 width:`${width}`,
                 textTransform: 'none',
                 backgroundColor: `${backgroundColor}`,

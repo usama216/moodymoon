@@ -8,8 +8,9 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
 
 const CustomTextField = styled(TextField)({
   width: "100%",
@@ -97,6 +98,35 @@ const DiscountTextField = styled(TextField)({
 });
 
 const ShoppingCartProduct = () => {
+  const dispatch = useDispatch();
+  const [totalAmount, setTotalAmount] = useState(0);
+  const cartitem = useSelector((state)=>state.cartItem)
+  // console.log('sfddsfdsfs', cartitem)
+
+  const calculateTotal = () => {
+    const total = cartitem.reduce((acc, item) => {
+      return acc + (item.price * item.quantity);  }, 0);
+    setTotalAmount(total);
+  };
+  
+  // const calculatetotla = ()=>{
+  //   const totalitem = cartitem.map(item => {
+  //     const totalprice = item.price * item.quantity;
+  //     return {
+  //       ...item,
+  //       totalprice
+  //     }
+  //   })
+  
+  //   const total = totalitem.reduce((acc, item)=> acc + item.totalprice, 0)
+  //   setTotalAmount(total);
+  // }
+  
+  
+  useEffect(()=>{
+    calculateTotal();
+  },[cartitem])
+
   const theme = useTheme();
 
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
@@ -119,7 +149,7 @@ const ShoppingCartProduct = () => {
   ];
   return (
     <>
-      {productdata.map((val, ind) => (
+      {cartitem.map((val, ind) => (
         <>
           <Box
             sx={{
@@ -139,7 +169,7 @@ const ShoppingCartProduct = () => {
                   fontWeight: 700,
                 }}
               >
-                Ice Cream Cake - THC A Exotic Indoor PreRoll
+              {val.title}
               </Typography>
 
               <Typography
@@ -149,7 +179,7 @@ const ShoppingCartProduct = () => {
                   fontWeight: "700",
                 }}
               >
-                $ {val.price}
+                $ {val.price * val.quantity}
               </Typography>
 
               <Typography
@@ -192,7 +222,7 @@ const ShoppingCartProduct = () => {
               }}
             >
               {" "}
-              $12.99
+              ${totalAmount}
             </Typography>
           </Box>
           <Typography

@@ -8,15 +8,35 @@ import {
     Rating,
     IconButton,
   } from "@mui/material";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoMdClose } from "react-icons/io";
 import { IoIosClose } from "react-icons/io";
 import CustomButton from "../../Views/Landing/components/Button/CustomButton";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem, decreaseCartItemQuantity, increaseCartItemQuantity, removeCartItem } from "../../store/reducers/cartReducer";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const ShoppingCart = ({closecart}) => {
+  const [totalAmount, setTotalAmount] = useState(0);
+  const cartitem = useSelector((state)=>state.cartItem)
+
+ const calculateTotal = () => {
+    const total = cartitem.reduce((acc, item) => {
+      return acc + (item.price * item.quantity);  }, 0);
+    setTotalAmount(total);
+  };
+
+
+useEffect(()=>{
+  calculateTotal();
+},[cartitem])
+
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
     const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -25,7 +45,8 @@ const ShoppingCart = ({closecart}) => {
   const is1022 = useMediaQuery('(max-width:1022px)');
 
 
-  const [orderQuantiy , setOrderQuantity] = useState(1);
+  const [orderQuantiy , setOrderQuantity] = useState(cartitem.map((row)=>row.quantity));
+  // console.log('isisisiisisisisis' , orderQuantiy);
 
   const cardData = [
     {img:'/OPcard1.png', title:'Ice Cream Cake - THC A Exotic Indoor PreRoll', price:'12.99'},
@@ -88,8 +109,8 @@ const ShoppingCart = ({closecart}) => {
         overflowY:'auto',
         overflowX:'hidden',
        }}>
-       {cardData.map((row, index)=>(
-         <Box key={index} sx={{bgcolor:'#ffffff45',
+       {cartitem.map((row)=>(
+         <Box key={row.productId} sx={{bgcolor:'#ffffff45',
           marginBottom:isSmallScreen ? '2rem':'1rem',
           display:'flex', justifyContent:'center',
           alignItems:'center',p:2, borderRadius:'10px', width:'100%', boxSizing:'border-box'
@@ -97,7 +118,7 @@ const ShoppingCart = ({closecart}) => {
           <Grid container spacing={isSmallScreen ? 1 : 3}> 
             <Grid item lg={4} md={4} sm={4} xs={4}>
               <Box sx={{width:'100%'}}>
-                <img src={row.img} alt="" width={'100%'}/>
+                <img src={row.image} alt="" width={'100%'}/>
               </Box>
             </Grid>
             <Grid item lg={7} md={7} sm={7} xs={7}>
@@ -115,7 +136,7 @@ const ShoppingCart = ({closecart}) => {
                   fontWeight:500,
                   color:'#f1b815', marginBottom:'0.5rem'
                 }}>
-               ${row.price}
+               ${row.price * row.quantity}
                 </Typography>
   
                 <Box sx={{display:'inline-block'}}>
@@ -126,17 +147,20 @@ const ShoppingCart = ({closecart}) => {
                   
                 }}>
                   <Box>
-                    <IconButton sx={{fontSize: isSmallScreen ? '1.6rem': '1.8rem', color:'white', py: '0rem'  }} onClick={()=>setOrderQuantity((pre)=>pre > 1 ? pre -1 : pre)} >
+                    <IconButton sx={{fontSize: isSmallScreen ? '1.6rem': '1.8rem', color:'white', py: '0rem'  }}
+                     onClick={()=>dispatch(row.quantity === 1 ? row.quantity : decreaseCartItemQuantity(row.productId))} >
                       -
                     </IconButton>
                   </Box>
                   <Typography sx={{
                     color:'white', mx:isSmallScreen ? 1: 3
                   }}>
-                    {orderQuantiy}
+                    {row.quantity}
                   </Typography>
                   <Box>
-                    <IconButton sx={{fontSize:'1.5rem', color:'white',py: '0rem' }} onClick={()=>setOrderQuantity((pre)=>pre+1)}>
+                    <IconButton sx={{fontSize:'1.5rem', color:'white',py: '0rem' }} 
+                    onClick={()=>dispatch(increaseCartItemQuantity(row.productId))}
+                    >
                       +
                     </IconButton>
                   </Box>
@@ -146,7 +170,7 @@ const ShoppingCart = ({closecart}) => {
             </Grid>
             <Grid item lg={1} md={1} sm={0.5} xs={0.5}>
             <IconButton sx={{mt:isSmallScreen ? 0 : -1.5}}
-                // onClick={closecart}
+                onClick={() => dispatch(removeCartItem(row.productId))}
                 >
                 <IoMdClose  style={{fontSize: isSmallScreen ? "1rem": isMediumScreen ?'1.2rem' :'1.3rem', 
                   p:2, backgroundColor:'#ffffff49', borderRadius:'100px', color:'white', }}/>
@@ -154,7 +178,7 @@ const ShoppingCart = ({closecart}) => {
             </Grid>
           </Grid>
          </Box>
-       ))}
+       ))} 
        </Box>
       
 {/* =====================================SHIP CARD==================================== */}
@@ -194,7 +218,7 @@ const ShoppingCart = ({closecart}) => {
 
   <Typography sx={{fontSize:isSmallScreen ? '1.1rem':'1.3rem',
      fontWeight:500, color:'white'}}>
-      Subtotal: <span style={{color:'#f1b815'}}>$12.99</span>
+      Subtotal: <span style={{color:'#f1b815'}}>${totalAmount}</span>
       </Typography>
       <Typography sx={{fontSize:isSmallScreen ? '0.9rem':'1rem',
      fontWeight:500, color:'white', marginBottom:'1rem'}}>
@@ -226,6 +250,7 @@ const ShoppingCart = ({closecart}) => {
              p="0.3rem 1rem"
              sp="0.3rem 0.6rem"
              display='none'
+             path={'/shopping-cart-details'}
             />
       </Box>
   </Box>

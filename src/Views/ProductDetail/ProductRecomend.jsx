@@ -33,7 +33,7 @@ const ProductRecomend = () => {
             >
            Recommended Products
             </Typography>
-            <Box>
+            <Box >
               <Grid container spacing={3}>
                 {listData.slice(0,4).map((row, index)=>(
                     <Grid key={index} item lg={3} md={4} sm={12} xs={12}>
