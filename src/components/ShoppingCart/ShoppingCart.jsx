@@ -136,7 +136,7 @@ useEffect(()=>{
                   fontWeight:500,
                   color:'#f1b815', marginBottom:'0.5rem'
                 }}>
-               ${row.price * row.quantity}
+               ${(row.price * row.quantity).toFixed(2)}
                 </Typography>
   
                 <Box sx={{display:'inline-block'}}>
@@ -218,7 +218,7 @@ useEffect(()=>{
 
   <Typography sx={{fontSize:isSmallScreen ? '1.1rem':'1.3rem',
      fontWeight:500, color:'white'}}>
-      Subtotal: <span style={{color:'#f1b815'}}>${totalAmount}</span>
+      Subtotal: <span style={{color:'#f1b815'}}>${(totalAmount).toFixed(2)}</span>
       </Typography>
       <Typography sx={{fontSize:isSmallScreen ? '0.9rem':'1rem',
      fontWeight:500, color:'white', marginBottom:'1rem'}}>

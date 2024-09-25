@@ -180,7 +180,7 @@ const ShoppingCartProduct = () => {
                   fontWeight: "700",
                 }}
               >
-                $ {val.price * val.quantity}
+                $ {(val.price * val.quantity).toFixed(2)}
               </Typography>
 
               <Typography
@@ -224,7 +224,7 @@ const ShoppingCartProduct = () => {
               }}
             >
               {" "}
-              ${totalAmount}
+              ${(totalAmount).toFixed(2)}
             </Typography>
           </Box>
           <Typography
