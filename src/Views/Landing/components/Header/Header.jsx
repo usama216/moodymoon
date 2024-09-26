@@ -177,7 +177,7 @@ const handleCartOpen = ()=>{
         }}> 
           Home
         </Typography>
-        <Box sx={{display:'flex'  }}>
+        <Box sx={{display:'flex',  }}>
           <ENavLinks/>
         </Box>
           {menuItems.map((item, index) => (

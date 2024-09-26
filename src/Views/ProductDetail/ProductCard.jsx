@@ -12,8 +12,8 @@ import {
 import React, { useState } from "react";
 import { IoMdRadioButtonOn } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+  import { useDispatch } from "react-redux";
+  import { useNavigate, useParams } from "react-router-dom";
 import { addCartItem } from "../../store/reducers/cartReducer";
 
 const ProductCard = () => {

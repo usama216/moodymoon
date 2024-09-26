@@ -31,7 +31,7 @@ const [subHeading, setSubHeading] = useState('');
             </h1>
             {link.submenu && link.sublinks && (
               <div>
-                <div className="hidden group-hover:md:block hover:block  absolute -top-96 hover:top-24 transition-all duration-[2000ms]">
+                <div className="hidden group-hover:md:block hover:block  absolute top-24 transition-all duration-[2000ms]">
                 {/* <div className="">
                     <div
                       className="w-4 h-4 left-3 absolute 
@@ -40,8 +40,8 @@ const [subHeading, setSubHeading] = useState('');
                   </div> */}
                   <div className=" bg-white p-10  grid grid-cols-3 gap-10 " >
                     {link.sublinks.map((mysublinks, index) => (
-                      <div className="">
-                          <h1 key={index} className="text-[1rem] md:text-[1.1rem] font-semibold"> 
+                      <div key={index} className="">
+                          <h1  className="text-[1rem] md:text-[1.1rem] font-semibold"> 
                               {mysublinks.head}
                               </h1>
                           {mysublinks.sublink.map((slinks)=>(
