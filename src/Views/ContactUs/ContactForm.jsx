@@ -66,7 +66,7 @@ const ContactForm = () => {
               <Typography sx={{
                 marginLeft:'1rem',
                 fontSize:isSmallScreen ? '1rem': isMediumScreen  ?  "1rem": '1.1rem',
-                fontWeight:'500', textAlign:'center', lineHeight:'1.2', marginBottom:'2rem'
+                fontWeight:'500', textAlign:'center', lineHeight:'1.2', marginBottom:'2rem',
               }}>
               Connect with us effortlessly! Fill out the form & let us know your thoughts, questions, or concerns. We're eager to hear from you & ready to assist.
               </Typography>

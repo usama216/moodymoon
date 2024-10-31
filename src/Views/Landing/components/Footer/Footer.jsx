@@ -90,7 +90,7 @@ const Footer = () => {
     {title: "THCA Disclaimer",
       mb:'1rem',
       des1:'We do not ship THCa products to the states where THCa is restricted or illegal.', 
-      des2:'We CAN ship THCa products to the following states: Alabama, Arizona, Arkansas, D.C., Florida, Georgia, Illinois, Kentucky, Louisiana, Maine, Missouri, Nebraska, Nevada, New York, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Texas, West Virginia.'
+      des2:'We CAN ship THCa products to the following states: Alabama, Arizona, Arkansas, D.C., Florida, Georgia, Illinois, Kentucky, Louisiana, Maine, Missouri, Nebraska, Nevada, New York, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Texas, West Virginia, Virginia.'
     },
     {title: "Delta-8 Disclaimer",
       mb:'0rem',
