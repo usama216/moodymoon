@@ -7,6 +7,9 @@ import ContactForm from './ContactForm'
 
 
 const ContactUsMain = () => {
+
+  
+  // console.log(<ContactUsHero/>)
   return (
     <>
     <ContactUsHero/>

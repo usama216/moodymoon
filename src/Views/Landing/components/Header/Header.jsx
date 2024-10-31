@@ -26,6 +26,8 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCart from "../../../../components/ShoppingCart/ShoppingCart";
 import { useSelector } from "react-redux";
+import ENavLinks from "./ENavLinks";
+
 
 
 
@@ -82,8 +84,8 @@ const Header = () => {
     setSelectedValue(event.target.value);
   };
   const menuItems = [
-    { label: "Home", route: "/" },
-    { label: "Services", route: "/our-products" },
+    // { label: "Home", route: "/" },
+    // { label: "Services", route: "/our-products" },
     { label: "Labe Test", route: "/lab-tests" },
     { label: "FAQS", route: "/faqs" },
     { label: "Blogs", route: "/blogs" },
@@ -161,6 +163,23 @@ const handleCartOpen = ()=>{
             alignItems: "center",
           }}
         >
+        <Typography onClick={()=>(
+          navigate('/')
+        )}
+        sx={{
+          fontSize:  "0.9rem",
+          cursor: "pointer",
+          fontWeight:550,
+          color: "black",
+          ":hover": {
+            color: theme.palette.primary.main,
+          },
+        }}> 
+          Home
+        </Typography>
+        <Box sx={{display:'flex',  }}>
+          <ENavLinks/>
+        </Box>
           {menuItems.map((item, index) => (
             <Typography
               key={index}
